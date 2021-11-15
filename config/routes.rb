@@ -3,6 +3,12 @@ Rails.application.routes.draw do
   root 'pages#home'
   
   # CUSTOMIZE DEVISE ROUTES
+  get 'pages/introduce'
+  get 'pages/trogiup'
+  get 'pages/giohang'
+  get 'pages/food'
+  get 'pages/drink'
+
   get '/users/sign_in', to: redirect('login')
   # get '/users/sign_up', to: redirect('signup')
   devise_for :users, skip: [:sessions]
@@ -15,5 +21,5 @@ Rails.application.routes.draw do
     # post   'signup',  to: "devise/registrations#create", as: :user_registration
     # get    '/users/edit', to: "devise/registrations#edit", as: :edit_user_registration
   end
-
+  
 end
