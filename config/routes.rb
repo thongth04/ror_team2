@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
   root 'pages#home'
+  get 'pages/introduce'
+  get 'pages/trogiup'
   get 'pages/giohang'
   get 'pages/food'
   get 'pages/drink'
