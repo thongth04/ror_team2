@@ -5,4 +5,10 @@ class PagesController < ApplicationController
 
   def giohang
   end
+
+  def food 
+  end
+  
+  def drink
+  end
 end
