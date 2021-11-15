@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   root 'pages#home'
+  get 'pages/giohang'
   get 'pages/food'
   get 'pages/drink'
 
@@ -19,5 +20,5 @@ Rails.application.routes.draw do
     post   'signup',  to: "devise/registrations#create", as: :user_registration
     get    '/users/edit', to: "devise/registrations#edit", as: :edit_user_registration
   end
-
+  
 end
