@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   
   root 'pages#home'
-  
+  get 'pages/food'
+  get 'pages/drink'
+
   get '/users/sign_in', to: redirect('login')
   get '/users/sign_up', to: redirect('signup')
   # get '/users/edit', to: "devise/registrations#edit"
