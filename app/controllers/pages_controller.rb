@@ -11,4 +11,6 @@ class PagesController < ApplicationController
   
   def drink
   end
-end
+ 
+ 
+  end

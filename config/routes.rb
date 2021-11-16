@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'pages/giohang'
   get 'pages/food'
   get 'pages/drink'
+  get 'admin/warehouse'
 
   get '/users/sign_in', to: redirect('login')
   # get '/users/sign_up', to: redirect('signup')
