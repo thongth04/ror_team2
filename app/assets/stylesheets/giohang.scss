@@ -1,5 +1,5 @@
 .sp{
-    margin-top: 100px;
+    // margin-top: 100px;
     font-family: Arial, Helvetica, sans-serif; 
     text-align: center;
 }
@@ -14,7 +14,8 @@
     width: 200px;
     font-family: Arial, Helvetica, sans-serif;
 }
-form {
+
+#giohang form {
     width: 300px;
     margin: 0 auto;
     text-align: center;
@@ -79,10 +80,10 @@ form {
     margin-top: 45px;
     margin-right: 30px;
 }
-.btn-giohang{
-    margin-top: 70px;
-    margin-left: 900px;
-}
+// .btn-giohang{
+//     margin-top: 70px;
+//     margin-left: 900px;
+// }
 .btn-back{
     height: 40px;
     width: 200px;

@@ -3,25 +3,28 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
-body {
-  font-family: "Open Sans", sans-serif;
-  background: #0c0b09;
-  color: #fff;
-}
 
-a {
-  color: #cda45e;
-  text-decoration: none;
-}
 
-a:hover {
-  color: #d9ba85;
-  text-decoration: none;
-}
+// body {
+//   font-family: "Open Sans", sans-serif;
+//   background: #0c0b09;
+//   color: #fff;
+// }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Playfair Display", serif;
-}
+// a {
+//   color: #cda45e;
+//   text-decoration: none;
+// }
+
+// a:hover {
+//   color: #d9ba85;
+//   text-decoration: none;
+// }
+
+// h1, h2, h3, h4, h5, h6 {
+//   font-family: "Playfair Display", serif;
+// }
+
 
 /*--------------------------------------------------------------
 # Preloader
@@ -275,6 +278,8 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 .book-a-table .php-email-form {
   width: 100%;
+  background: #000;
+  border-radius: 2px;
 }
 
 .book-a-table .php-email-form .form-group {
@@ -334,9 +339,10 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 0;
   box-shadow: none;
   font-size: 14px;
-  background: #0c0b09;
+  // background: #0c0b09;
   border-color: #625b4b;
-  color: white;
+  border-radius: 5px;
+  // color: white;
 }
 
 .book-a-table .php-email-form input::-webkit-input-placeholder, .book-a-table .php-email-form textarea::-webkit-input-placeholder {
