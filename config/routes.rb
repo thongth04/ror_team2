@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'pages/food'
   get 'pages/drink'
   get 'pages/giohang'
+  get 'pages/pay'
   
   devise_for :users
 end

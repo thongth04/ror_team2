@@ -1,0 +1,106 @@
+<%= stylesheet_link_tag 'pay', media: 'all', 'data-turbolinks-track': 'reload' %>
+<div class="container mt-5 px-5">
+    <h2 class="title_hinhthuc text_hinhthuc">Hình thức đặt hàng</h2>
+    <div class="d-flex dathang">
+        <div class="card hinhthuc_1" style="width: 18rem;">
+            <%=image_tag "hinhthuc_1.png", class:"img_hinhthuc"%> 
+            <div class="card-body">
+                <h5 class="card-title text_hinhthuc">Đặt giao hàng</h5>
+                <p class="card-text chu">Giao hàng tận nơi với đơn hàng thực thanh toán từ 100.000đ .Phụ thu phí giao hàng từ 25.000đ cho mỗi đơn đặt hàng qua Hotline 19006066 hoặc Website, bao gồm hoá đơn có các sản phẩm thuộc chương trình khuyến mại.</p>
+                <div>
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <label class="form-check-label chu" for="flexRadioDefault1">Đặt giao hàng</label>
+                </div>
+            </div>
+        </div>
+        <div class="card hinhthuc_2" style="width: 18rem;">
+           <%=image_tag "hinhthuc_2.png", class: "img_hinhthuc" %>
+            <div class="card-body">
+                <h5 class="card-title text_hinhthuc">Đặt đến lấy</h5>
+                <p class="card-text chu">Nhận tại tiệm chúng tôi.</p>
+                <div class="tick">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked="">
+                    <label class="form-check-label chu" for="flexRadioDefault2">Đặt đến lấy</label>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+
+    <div class="container mt-5 px-5">
+        <div class="title_hinhthuc">
+            <h2 class="text_hinhthuc">Thông Tin Đặt Hàng</h2> <span>Điền đúng thông tin để chúng tôi có thể hỗ trợ bạn</span>
+        </div>
+        <div class="row ">
+            <div class="col-md-8 form">
+                <div class="card p-3">
+                    <h6 class="text-uppercase chu">Thông tin cá nhân</h6>
+                    <div class="inputbox mt-3"> <input type="text" name="name" class="form-control" required="required"> <span class="chu">Họ và Tên</span> </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <i class="fa fa-credit-card"></i> <span class="chu">Số điện thoại</span> </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 mb-4">
+                        <h6 class="text-uppercase chu">Địa Chỉ</h6>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span class="chu">Tỉnh/Thành</span> </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span class="chu">Quận/Huyện</span> </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span class="chu">Phường/Xã</span> </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span class="chu">Số nhà</span> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+
+    <div class="my-3 form2">
+        <h4 class="text_httt">Hình thức thanh toán</h4>
+        <div class="form-check">
+            <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked="" required="">
+            <label class="form-check-label" for="credit">Thanh toán trực tuyến</label>
+        </div>
+        <div class="form-check">
+            <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required="">
+            <label class="form-check-label" for="debit">Thanh toán tiền mặt</label>
+        </div>
+    </div>
+
+
+    <div class="container mt-5 px-5">
+    <div class="mb-4 title_hinhthuc">
+        <h2 class="text_hinhthuc">Thanh Toán Bằng Thẻ Ngân Hàng</h2> 
+    </div>
+    <div class="row">
+        <div class="col-md-8 form1">
+            <div class="card p-3">
+                <h6 class="text-uppercase chu">Thông Tin Thẻ <%=image_tag "card1.png", width:30%> <%=image_tag "card2.png", width:30%></h6>
+                <div class="inputbox mt-3"> <input type="text" name="name" class="form-control" required="required"> <span class="chu">Tên Ngân Hàng</span> </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <i class="fa fa-credit-card"></i> <span class="chu">Mã Thẻ</span> </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex flex-row">
+                            <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span class="chu">Thời Hạn</span> </div>
+                            <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span class="chu">CVV</span> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4 mb-4 d-flex justify-content-between"> <span></span> <button class="btn btn-success px-3">Thanh Toán</button> </div>
+        </div>
+    </div>
+</div>
+</div> 

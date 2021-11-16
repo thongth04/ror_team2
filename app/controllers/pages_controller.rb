@@ -11,4 +11,7 @@ class PagesController < ApplicationController
   
   def drink
   end
+
+  def pay
+  end
 end
