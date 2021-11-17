@@ -14,4 +14,6 @@ class PagesController < ApplicationController
 
   def pay
   end
+  def warehouse
+  end
 end
