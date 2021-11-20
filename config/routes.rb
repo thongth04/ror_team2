@@ -9,4 +9,8 @@ Rails.application.routes.draw do
   get 'pages/pay'
   
   devise_for :users
+
+  get 'admins/index'
+  get 'admins/manage_users'
+
 end
