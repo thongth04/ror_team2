@@ -7,10 +7,9 @@ Rails.application.routes.draw do
   get 'pages/drink'
   get 'pages/giohang'
   get 'pages/pay'
-  
+
   devise_for :users
-
-  get 'admins/index'
-  get 'admins/manage_users'
-
+  scope "/admin" do
+    resources :users, only: [:index, :edit, :update, :destroy]
+  end
 end
