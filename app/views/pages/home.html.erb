@@ -1,8 +1,28 @@
 <%= render "shared/carousel" %>
 
-<%= render "shared/productlist" %>
+<div class="container mb-5 mt-5">
+  <div class="strike-under"><h1 class="text-center mb-5"><span>Món chính</span></h1></div>
+  <div class="row">
+    <% @foods.each do |product| %>
+      <%= render 'shared/product', product: product %>
+    <% end %>
+  </div>
+  <div class="d-flex justify-content-center mt-3">
+    <%= link_to "XEM THÊM >", root_path, class: "fs-4 btn btn-outline-success" %>
+  </div>
+</div>
+<div class="container mb-4">
+  <div class="strike-under"><h1 class="text-center mb-5"><span>Thức uống</span></h1></div>
+  <div class="row">
+    <% @drinks.each do |product| %>
+      <%= render 'shared/product', product: product %>
+    <% end %>
+  </div>
+  <div class="d-flex justify-content-center mt-3 mb-5">
+    <%= link_to "XEM THÊM >", root_path, class: "fs-4 btn btn-outline-success" %>
+  </div>
+</div>
 
-<%= render "shared/productlist" %>
 
 <%= render "shared/feedback" %>
 
