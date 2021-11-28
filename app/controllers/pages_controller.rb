@@ -8,10 +8,12 @@ class PagesController < ApplicationController
   def giohang
   end
 
-  def food 
+  def food
+    @foods = Product.where("product_type = 'food'")
   end
   
   def drink
+    @drinks = Product.where("product_type = 'drink'")
   end
 
   def pay
