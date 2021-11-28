@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
   <div class="container-fluid">
     <h2><%= link_to "T2FoodStore", root_path, class: "navbar-brand" %></h2>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,30 +21,35 @@
         <li class="nav-item">
           <%= link_to "Hỗ Trợ", pages_support_path, class:"nav-link" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "Giỏ Hàng", pages_giohang_path, class:"nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Admin", users_path, class:"nav-link" %>
-        </li>
       </ul>
 
-      <ul class="navbar-nav mb-2 mb-lg-0 d-flex">
+      <ul class="navbar-nav mb-2 me-4 mb-lg-0 d-flex">
         <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to current_user.username, edit_user_registration_path, class:"nav-link btn me-2" %>
-          </li>
-          <li class="nav-item">
-            <%= button_to "Logout", destroy_user_session_path, method: :delete, class:"nav-link btn btn-outline-success px-3" %>
+          <li class="nav-item dropdown me-4">
+            <a class="nav-link px-3 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <%= current_user.username %>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><%= link_to "Your profile", edit_user_registration_path, class:"dropdown-item" %></li>
+              <li><%= link_to "Admin", users_path, class:"dropdown-item" %></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><%= button_to "Logout", destroy_user_session_path, method: :delete, class:"dropdown-item" %></li>
+            </ul>
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class:"nav-link btn me-2" %>
+            <%= link_to "Đăng Nhập", new_user_session_path, class:"nav-link px-0" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "Signup", new_user_registration_path, class:"nav-link btn btn-outline-success px-3" %>
+          <li class="nav-item"><span class="nav-link">/</span></li>
+          <li class="nav-item me-4">
+            <%= link_to "Đăng Ký", new_user_registration_path, class:"nav-link ps-0" %>
           </li>
         <% end %>
+        <li class="nav-item">
+          <%= link_to pages_giohang_path do %>
+            <%= image_tag('https://i.ibb.co/NFkg7KT/cart.png', height: '32', width: '32', class:"opacity-75 mt-1") %>
+          <% end %>
+        </li>
       </ul>
     </div>
   </div>

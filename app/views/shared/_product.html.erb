@@ -1,0 +1,10 @@
+<div class="col ms-2 mb-3">
+  <div class="card mb-3" style="width: 18rem;">
+    <img class="card-img-top" src="<%= product.image_url %>" alt="image.jpg">
+    <div class="card-body">
+      <h5 class="card-title"><%= truncate product.title, length:27 %></h5>
+      <p class="card-text mb-1"><%= number_to_currency(product.price, unit:"", precision: 0, delimiter:'.') %> VND</p>
+      <%= link_to "Đặt món", root_path, class: "btn btn-success float-end" %>
+    </div>
+  </div>
+</div>
