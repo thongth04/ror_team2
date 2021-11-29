@@ -1,93 +1,123 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ title: 'Star Wars' }, { title: 'Lord of the Rings' }])
-#   Character.create(title: 'Luke', movie: movies.first)
 
-foods = Product.create([
+drinks = Product.create([
   {
-    title: "Mì spaghetti sốt kem nấm",
-    product_type: 'food', price: 99000,
+    title: "Dragon Fruit Yakult",
+    price: 49000,
     image_url:
-      "https://img.tastykitchen.vn/crop/320x250/2021/11/02/my-y-kem-nam-2-b720.jpg",
+      "https://img.tastykitchen.vn/crop/320x250/2021/06/01/yakul-1-cd6d.jpg",
   },
   {
-    title: "Mì spaghetti sốt cà chua bacon",
-    product_type: 'food', price: 99000,
+    title: "Vitamin Day",
+    price: 49000,
     image_url:
-      "https://img.tastykitchen.vn/crop/320x250/2021/11/02/my-y-ca-chua-2-616f.jpg",
+      "https://img.tastykitchen.vn/crop/320x250/2021/06/01/cam-thom-1-6905.jpg",
   },
   {
-    title: "Mì spaghetti sốt bò bằm",
-    product_type: 'food', price: 99000,
+    title: "Trà sữa TASTY",
+    price: 39000,
     image_url:
-      "https://img.tastykitchen.vn/crop/320x250/2021/11/02/my-y-bo-bam-2-59b9.jpg",
+      "https://img.tastykitchen.vn/crop/320x250/2021/04/12/tra-sua-tasty-1280x1000-9a3c.jpg",
   },
   {
-    title: "Cháo tôm",
-    product_type: 'food', price: 95000,
+    title: "Bạc xỉu TASTY",
+    price: 39000,
     image_url:
-      "https://img.tastykitchen.vn/crop/320x250/2021/06/02/chao-tom-dc62.jpg",
+      "https://img.tastykitchen.vn/crop/320x250/2021/04/12/bac-xiu-tasty-1280x1000-98cd.jpg",
   },
   {
-    title: "Ba rọi chiên mắm ngò",
-    product_type: 'food', price: 175000,
+    title: "Cà phê sữa đá",
+    price: 39000,
     image_url:
-      "https://img.tastykitchen.vn/crop/320x250/2021/01/25/ba-roi-mam-ngo-1280x1000-9503.jpg",
+      "https://img.tastykitchen.vn/crop/320x250/2021/04/12/cafe-sua-1280x1000-be0b.jpg",
   },
   {
-    title: "Sụn gà xóc muối Tây Ninh",
-    product_type: 'food', price: 135000,
-    image_url: "https://img.tastykitchen.vn/crop/320x250/2020/11/17/2-d84e.jpg",
+    title: "Trà sữa khoai lang vàng",
+    price: 54000,
+    image_url:
+      "https://img.tastykitchen.vn/crop/320x250/2021/04/12/tra-sua-khoai-lang-1280x1000-bf0b.jpg",
   },
   {
-    title: "Chả giò pate (Ready to cook)",
-    product_type: 'food', price: 104000,
+    title: "Tiramisu coffee",
+    price: 54000,
     image_url:
-      "https://img.tastykitchen.vn/crop/320x250/2021/09/22/cha-gio-pate-b075.jpg",
+      "https://img.tastykitchen.vn/crop/320x250/2021/04/12/tiramisu-coffee-1280x1000-922a.jpg",
   },
   {
-    title: "Bò hầm củ cải (Ready to cook)",
-    product_type: 'food', price: 184000,
+    title: "Trà sữa xoài sầu riêng",
+    price: 45000,
     image_url:
-      "https://img.tastykitchen.vn/crop/320x250/2021/09/22/bo-ham-cu-cai-d38b.jpg",
+      "https://img.tastykitchen.vn/crop/320x250/2021/04/13/olong-xoai-sau-rieng-1280x1000-0920.jpg",
   },
   {
-    title: "[Ready to cook] Nem lụi nướng mía",
-    product_type: 'food', price: 148000,
+    title: "Trà lài kiwi nha đam chai 250ml",
+    price: 54000,
     image_url:
-      "https://img.tastykitchen.vn/crop/320x250/2021/11/02/nem-lui-nuong-mia-2-38b3.jpg",
+      "https://img.tastykitchen.vn/crop/320x250/2021/09/24/tra-lai-kiwi-nha-dam-2200.jpg",
   },
   {
-    title: "Sườn heo nướng ngũ vị (Ready to cook)",
-    product_type: 'food', price: 234000,
+    title: "Trà hibiscus thanh yên chai 250ml",
+    price: 54000,
     image_url:
-      "https://img.tastykitchen.vn/crop/320x250/2021/09/23/suon-nuong-ngu-vi-f2cc.jpg",
+      "https://img.tastykitchen.vn/crop/320x250/2021/09/24/hibiscus-thanh-yen-238e.jpg",
   },
   {
-    title: "Giò heo hầm pate (Ready to cook)",
-    product_type: 'food', price: 228000,
+    title: "Trà hibiscus táo dứa chai 250ml",
+    price: 54000,
     image_url:
-      "https://img.tastykitchen.vn/crop/320x250/2021/09/15/tasty-mockupfood-1280x1000-01-min-6ae9.png",
+      "https://img.tastykitchen.vn/crop/320x250/2021/09/24/hibiscus-tao-dua-f29a.jpg",
   },
   {
-    title: "Cà ri gà (Ready to cook)",
-    product_type: 'food', price: 154000,
+    title: "Coco lemon cold brew coffee",
+    price: 88000,
     image_url:
-      "https://img.tastykitchen.vn/crop/320x250/2021/09/23/ca-ri-ga-0946.jpg",
+      "https://img.tastykitchen.vn/crop/320x250/2021/09/27/coco-lemon-cf-a21e.jpg",
   },
   {
-    title: "Ức gà chiên xù (Ready to cook) ",
-    product_type: 'food', price: 158000,
+    title: "Irish cream cold brew coffee",
+    price: 88000,
     image_url:
-      "https://img.tastykitchen.vn/crop/320x250/2021/09/15/tasty-mockupfood-1280x1000-13-f29a.png",
+      "https://img.tastykitchen.vn/crop/320x250/2021/09/27/irish-cream-cf-a2c0.jpg",
   },
   {
-    title: "Giò thủ TASTY",
-    product_type: 'food', price: 48000,
+    title: "Original cold brew coffee 200 ml",
+    price: 88000,
     image_url:
-      "https://img.tastykitchen.vn/crop/320x250/2021/09/22/gio-thu-0d47.jpg",
+      "https://img.tastykitchen.vn/crop/320x250/2021/09/27/coldbrew-cf-cfeb.jpg",
+  },
+  {
+    title: "Trà vải hoa hồng chai 250 ml",
+    price: 54000,
+    image_url:
+      "https://img.tastykitchen.vn/crop/320x250/2021/08/06/tra-vai-hoa-hong-web-min-2692.jpg",
+  },
+  {
+    title: "Hồng trà cam quế chai 250 ml",
+    price: 54000,
+    image_url:
+      "https://img.tastykitchen.vn/crop/320x250/2021/08/06/hong-tra-cam-que-web-min-0a43.jpg",
+  },
+  {
+    title: " Trà sữa lài hoa đậu biếc chai 250 ml ",
+    price: 48000,
+    image_url:
+      "https://img.tastykitchen.vn/crop/580x360/2021/08/06/tra-sua-lai-dau-biec-web-min-5399.jpg",
+  },
+  {
+    title: " Trà sữa TASTY chai 250 ml ",
+    price: 48000,
+    image_url:
+      "https://img.tastykitchen.vn/crop/580x360/2021/08/06/tra-sua-tasty-min-6cf3.jpg",
+  },
+  {
+    title: " Trà sữa lài hoa đậu biếc chai 250 ml ",
+    price: 48000,
+    image_url:
+      "https://img.tastykitchen.vn/crop/580x360/2021/08/06/tra-sua-lai-dau-biec-web-min-5399.jpg",
+  },
+  {
+    title: " Trà sữa TASTY chai 250 ml ",
+    price: 48000,
+    image_url:
+      "https://img.tastykitchen.vn/crop/580x360/2021/08/06/tra-sua-tasty-min-6cf3.jpg",
   },
 ]);
