@@ -1,11 +1,28 @@
-<div class="container mb-5 mt-5">
+<div class="row g-0">
   <div class="strike-under"><h1 class="text-center mb-5"><span>Món chính</span></h1></div>
-  <div class="row">
-    <% @foods.each do |product| %>
-      <%= render 'shared/product', product: product %>
-    <% end %>
-  </div>
+     
+         <% if @foods.count == 0 %>
+          <p class="fs-4 ms-4 mt-4">Cannot find any foods</p>
+          
+        <% elsif @foods.count == 1 %>
+          <% @foods.each do |product| %>
+            <%= render 'shared/product', product: product %>
+          <% end %>
+        <% else %>
+          <div class="apple_pagination">
+            <%= will_paginate @foods, :container => false %>
+          </div> 
+          <% @foods.each do |product| %>
+            <%= render 'shared/product', product: product %>
+          <% end %>
+          <div class="apple_pagination">
+            <%= will_paginate @foods, :container => false %>
+          </div> 
+        <% end %>
+ 
+
   <div class="d-flex justify-content-center mt-3">
-    <%= link_to "XEM THÊM >", root_path, class: "fs-4 btn btn-outline-success" %>
+  <%= link_to "XEM THÊM >", root_path, class: "fs-4 btn btn-outline-success" %>
   </div>
+
 </div>
