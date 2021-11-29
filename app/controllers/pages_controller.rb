@@ -10,13 +10,13 @@ class PagesController < ApplicationController
 
   def food
     
-    @foods = Product.where("product_type = 'food'").paginate(:page => params[:page], :per_page => 8).order('created_at desc')
+    @foods = Product.where("product_type = 'food'").paginate(:page => params[:page], :per_page => 16).order('created_at asc')
    
   end
   
   def drink
     
-    @drinks = Product.where("product_type = 'drink'").paginate(:page => params[:page], :per_page => 6).order('created_at desc')
+    @drinks = Product.where("product_type = 'drink'").paginate(:page => params[:page], :per_page => 16).order('created_at asc')
 
   end
 
