@@ -20,9 +20,6 @@ class PagesController < ApplicationController
 
   end
 
- 
-  
-
   def pay
   end
   def warehouse
