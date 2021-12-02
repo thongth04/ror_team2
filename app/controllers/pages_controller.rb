@@ -27,4 +27,7 @@ class PagesController < ApplicationController
   end
   def warehouse
   end
+
+  def invoice
+  end
 end
