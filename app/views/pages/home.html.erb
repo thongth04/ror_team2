@@ -1,30 +1,16 @@
-<%= render "shared/carousel" %>
+<%= render "home/carousel" %>
 
-<div class="container mb-5 mt-5">
-  <div class="strike-under"><h1 class="text-center mb-5"><span>Món chính</span></h1></div>
-  <div class="row">
-    <% @foods.each do |product| %>
-      <%= render 'shared/product', product: product %>
-    <% end %>
-  </div>
-  <div class="d-flex justify-content-center mt-3">
-    <%= link_to "XEM THÊM >", pages_food_path, class: "fs-4 btn btn-outline-success" %>
-  </div>
-</div>
-<div class="container mb-4">
-  <div class="strike-under"><h1 class="text-center mb-5"><span>Thức uống</span></h1></div>
-  <div class="row">
-    <% @drinks.each do |product| %>
-      <%= render 'shared/product', product: product %>
-    <% end %>
-  </div>
-  <div class="d-flex justify-content-center mt-3 mb-5">
-    <%= link_to "XEM THÊM >", pages_drink_path, class: "fs-4 btn btn-outline-success" %>
-  </div>
+<div class="container mb-5 mt-5"  id="products-listing">
+  <div class="strike-under"><h1 class="text-center mb-5"><span>Món Chính</span></h1></div>
+  <%= render 'home/intro_products', products: @foods, path: pages_foods_path %>
 </div>
 
+<div class="container mb-4" id="products-listing">
+  <div class="strike-under"><h1 class="text-center mb-5"><span>Thức Uống</span></h1></div>
+  <%= render 'home/intro_products', products: @drinks, path: pages_drinks_path %>
+</div>
 
-<%= render "shared/feedback" %>
+<%= render "home/feedback" %>
 
-<%= render "shared/features" %>
+<%= render "home/features" %>
 
