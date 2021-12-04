@@ -98,3 +98,23 @@
     z-index: 2;
     overflow: hidden
 }
+
+.group-input {
+    button {
+        width: 30px;
+        background-color: white;
+        border: 1px solid lightgray;
+    }
+    button:hover {
+        background-color: lightgray;
+    }
+    input {
+        width: 50px;
+        border: 1px solid lightgray;
+        z-index: 2;
+    }
+    input:focus {
+        outline-style: solid;
+        outline-color: lightblue;
+    }
+}

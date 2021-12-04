@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   # get 'pages/pay'
   # get 'pages/warehouse'
   # get 'pages/invoice'
+  get 'product-details', to: 'pages#product_details'
 
   devise_for :users
   scope "/admin" do

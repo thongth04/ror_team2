@@ -12,6 +12,10 @@ class PagesController < ApplicationController
   def drinks
     @drinks = Product.where(product_type: 'drink').paginate(:page => params[:page], :per_page => 16).order('created_at asc')
   end
+
+  def product_details
+    @product = Product.find(params[:product_id])
+  end
   
   # def cart
   # end
