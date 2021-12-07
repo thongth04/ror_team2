@@ -8,9 +8,6 @@ class CartsController < ApplicationController
     # byebug
   end
 
-  def destroy
-  end
-
   private
     def cart_params
       params.require(:cart).permit(:total, :user_id)

@@ -100,12 +100,13 @@
 }
 
 .group-input {
-    button {
-        width: 30px;
+    .btn {
+        border-radius: 0;
+        width: 35px;
         background-color: white;
         border: 1px solid lightgray;
     }
-    button:hover {
+    .btn:hover {
         background-color: lightgray;
     }
     input {
