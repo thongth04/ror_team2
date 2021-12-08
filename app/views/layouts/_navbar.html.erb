@@ -25,6 +25,7 @@
 
       <ul class="navbar-nav mb-2 me-4 mb-lg-0 d-flex">
         <% if user_signed_in? %>
+          <% create_new_cart(current_user) %>
           <li class="nav-item dropdown me-4">
             <a class="nav-link px-3 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <%= current_user.username %>
@@ -36,6 +37,11 @@
               <li><%= button_to "Logout", destroy_user_session_path, method: :delete, class:"dropdown-item" %></li>
             </ul>
           </li>
+          <li class="nav-item">
+            <%= link_to cart_path(current_user.cart) do %>
+              <%= image_tag('https://i.ibb.co/NFkg7KT/cart.png', height: '32', width: '32', class:"opacity-75 mt-1") %>
+            <% end %>
+          </li>
         <% else %>
           <li class="nav-item">
             <%= link_to "Đăng Nhập", new_user_session_path, class:"nav-link px-0" %>
@@ -44,12 +50,12 @@
           <li class="nav-item me-4">
             <%= link_to "Đăng Ký", new_user_registration_path, class:"nav-link ps-0" %>
           </li>
+          <li class="nav-item">
+            <%= link_to new_user_session_path do %>
+              <%= image_tag('https://i.ibb.co/NFkg7KT/cart.png', height: '32', width: '32', class:"opacity-75 mt-1") %>
+            <% end %>
+          </li>
         <% end %>
-        <li class="nav-item">
-          <%= link_to pages_cart_path do %>
-            <%= image_tag('https://i.ibb.co/NFkg7KT/cart.png', height: '32', width: '32', class:"opacity-75 mt-1") %>
-          <% end %>
-        </li>
       </ul>
     </div>
   </div>
