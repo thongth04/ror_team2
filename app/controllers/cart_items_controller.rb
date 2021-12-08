@@ -4,9 +4,15 @@ class CartItemsController < ApplicationController
   before_action :find_cart
 
   def create
-    @cart_item = @cart.cart_items.create(cart_item_params)
-    @cart_item.product_id = @product.id
-    @cart_item.save
+    existed_item = @cart.cart_items.where(product_id: params[:product_id])[0]
+    if existed_item
+      existed_item.quantity += params[:cart_item][:quantity].to_i
+      existed_item.save
+    else
+      @cart_item = @cart.cart_items.create(cart_item_params)
+      @cart_item.product_id = @product.id
+      @cart_item.save
+    end
     redirect_back(fallback_location: root_path)
   end
 
