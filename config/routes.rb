@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   devise_for :users
   scope "/admin" do
     resources :users, only: [:index, :edit, :update, :destroy]
+    
   end
 
   resources :products
