@@ -19,7 +19,7 @@
 
         <div class="form-group mt-3 d-flex justify-content-between">
           <b><%= f.label :category %>:</b> 
-          <%= f.select :product_type, ["Drinks", "Foods", "Others"], {}, { class: "p-2 w-75" } %>
+          <%= f.select :product_type, [["Drinks", 'drink'], ["Foods", 'food'], ["Others", 'others']], {}, { class: "p-2 w-75" } %>
         </div>
         
         <div class="form-group mt-3 d-flex justify-content-between">
