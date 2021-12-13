@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   
   scope "/admin" do
     resources :users, only: [:index, :edit, :update, :destroy]
+    
   end
   
   resources :products do
