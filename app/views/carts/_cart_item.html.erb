@@ -1,11 +1,11 @@
-<div class="card p-4 mb-3">
+<div class="card p-4 mb-3" id="cart-item">
   <div class="row">
     <div class="col-sm-2 d-flex align-items-center">
       <img class="img" src="<%= cart_item.product.image_url %>">
     </div>
 
-    <div class="col-sm-3 d-flex align-items-center" id="cart-item">
-      <%= link_to cart_item.product.title, root_path %>
+    <div class="col-sm-3 d-flex align-items-center">
+      <%= button_to cart_item.product.title, product_details_path(cart_item.product), method: :get, params: { product_id: cart_item.product.id }, class:"button-to" %>
     </div>
 
     <div class="col-sm-2 d-flex align-items-center fw-bold">
@@ -14,9 +14,9 @@
 
     <div class="col-sm-2 d-flex align-items-center">
       <div class="group-input d-flex">
-        <div class="btn rounded-start" id="descrease">-</div>
+        <div class="btn rounded-start">-</div>
         <input type="number" value="<%= cart_item.quantity %>" min="1" class="text-center" id="quantity" >
-        <div class="btn rounded-end" id="increase">+</div>
+        <div class="btn rounded-end">+</div>
       </div>
     </div>
 
