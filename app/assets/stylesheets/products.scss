@@ -93,6 +93,9 @@
 // .card:hover .weight {
 //     margin-top: 10px
 // }
+#products-listing .card {
+    transition: all 200ms;
+}
 #products-listing .card:hover {
     transform: scale(1.06);
     z-index: 2;
