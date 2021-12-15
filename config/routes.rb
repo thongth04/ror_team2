@@ -1,19 +1,29 @@
 Rails.application.routes.draw do
   
+  resources :orders
   root 'pages#home'
   get 'pages/introduce'
   get 'pages/support'
-  get 'pages/food'
-  get 'pages/drink'
-  get 'pages/giohang'
+  get 'pages/foods'
+  get 'pages/drinks'
+  # get 'pages/cart'
   get 'pages/pay'
-  get 'pages/warehouse'
-  get 'pages/invoice'
+  # get 'pages/warehouse'
+  # get 'pages/invoice'
+  get 'product-details', to: 'pages#product_details'
+
   devise_for :users
+  
   scope "/admin" do
     resources :users, only: [:index, :edit, :update, :destroy]
   end
+  
+  resources :products do
+    resources :cart_items
+  end
 
-  resources :products
+  resources :carts do
+    resources :cart_items
+  end
 
 end

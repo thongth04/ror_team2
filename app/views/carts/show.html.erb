@@ -1,0 +1,66 @@
+<div class="container mb-5 mx-auto">
+  <h3 class="mt-4 mb-3">GIỎ HÀNG</h3>
+
+  <% if @cart.cart_items.count > 0 %>
+    <div class="row">
+      <div class="col-sm-9">
+        <div class="card px-4 py-2 mb-3">
+          <div class="row">
+            <div class="col-sm-5">#Sản phẩm</div>
+            <div class="col-sm-2">Đơn giá</div>
+            <div class="col-sm-2">Số lượng</div>
+            <div class="col-sm-2 ps-5">Thành tiền</div>
+            <div class="col-sm-1"></div>
+          </div>
+        </div>
+        <% @cart.cart_items.each do |item| %>
+          <%= render 'cart_item', cart_item: item %>
+        <% end %>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="card">
+          <div class="card-body">
+            <p class="card-text fw-bold mb-2"><small>Giao tới</small></p>
+            <p class="card-title fw-bold"><%= current_user.username %> | <%= current_user.phone %></p>
+            <p class="card-text mb-4"><small><%= current_user.address %></small></p>
+            <hr>
+            <p class="card-text">THÔNG TIN KHUYẾN MÃI</p>
+            <div class="d-flex justify-content-between">
+              <span class="card-text">Mã giảm giá</span>
+              <span class="card-text text-primary fst-italic border border-primary rounded py-1 px-2">GIAMGIA20K</span>
+            </div>
+            <hr>
+            <div class="d-flex justify-content-between">
+              <span class="card-text">Tạm tính</span>
+              <span class="card-text"><%= number_to_currency(tam_tinh(@cart), unit:"", precision: 0, delimiter:'.') %>đ</span>
+            </div>
+            <div class="d-flex justify-content-between">
+              <span class="card-text">Giảm giá</span>
+              <span class="card-text">-<%= number_to_currency(20000, unit:"", precision: 0, delimiter:'.') %>đ</span>
+            </div>
+            <hr>
+            <div class="d-flex justify-content-between">
+              <span class="card-title fw-bold">Tổng cộng</span>
+              <span class="card-text text-danger fs-4"><%= number_to_currency(tong_tien(tam_tinh(@cart)), unit:"", precision: 0, delimiter:'.') %>đ</span>
+            </div>
+            <div class="card-title float-end fw-light"><small>(Đã bao gồm VAT nếu có)</small></div>
+            <%# <%= link_to "Thanh Toán", pages_pay_path, class:"btn btn-danger w-100 mt-4 mb-2" %> 
+            <%= button_to 'Đặt Hàng', 
+              new_order_path, 
+              :method => :get, class:"btn btn-danger w-100 mt-4 mb-2" %><br>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <% else %>
+    <div class="card bg-light" style="height:500px;">
+      <div class="card-body mt-5 text-center">
+        <div><img src="https://i.ibb.co/v44JN8q/pizza.png" style="width: 200px;"></div>
+        <div class="fs-4 mt-4">Không có sản phẩm nào trong giỏ hàng của bạn.</div>
+      </div>
+    </div>
+  <% end %>
+
+</div>
