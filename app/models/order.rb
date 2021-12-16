@@ -1,11 +1,13 @@
 class Order < ApplicationRecord
     # has_many :cart_items, :dependent => :destroy
-    PAYMENT_TYPES = [ "Thanh Toán Trực Tuyến", "Thanh Toán Tiền Mặt" ]
-    ODERS_FORM = [ "Đặt Giao Hàng", "Đặt Đến Lấy" ]
+    belongs_to :user
 
-    validates :name, :address, :phone, :pay_type, :oder_form,:presence => true
+    PAYMENT_TYPES = [ "Thanh Toán Trực Tuyến", "Thanh Toán Tiền Mặt" ]
+    ORDERS_FORM = [ "Đặt Giao Hàng", "Đặt Đến Lấy" ]
+
+    validates :name, :address, :phone, :pay_type, :order_form, :presence => true
     validates :pay_type, :inclusion => PAYMENT_TYPES
-    validates :oder_form, :inclusion => ODERS_FORM
+    validates :order_form, :inclusion => ORDERS_FORM
 
     # def add_cart_items_from_cart(cart) 
     #     cart.cart_items.each do |product|

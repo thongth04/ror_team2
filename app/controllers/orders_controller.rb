@@ -12,12 +12,12 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
-    @cart =current_user.cart
+    @cart = current_user.cart
       if @cart.cart_items.empty?
           redirect_to '/', :notice => 'Your cart is empty'
           return
       end
-    @order = Order.new
+    @order = current_user.orders.new
   end
 
   # GET /orders/1/edit
@@ -26,7 +26,7 @@ class OrdersController < ApplicationController
 
   # POST /orders or /orders.json
   def create
-    @order = Order.new(order_params)
+    @order = current_user.orders.new(order_params)
     # @order.add_cart_items_from_cart(current_user)
 
     respond_to do |format|
@@ -72,6 +72,6 @@ class OrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def order_params
-      params.require(:order).permit(:name, :address, :phone, :pay_type, :oder_form)
+      params.require(:order).permit(:name, :address, :phone, :pay_type, :order_form, :user_id)
     end
 end
