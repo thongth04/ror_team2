@@ -1,16 +1,16 @@
-<%= render "home/carousel" %>
+<%= render "carousel" %>
 
 <div class="container mb-5 mt-5"  id="products-listing">
   <div class="strike-under"><h1 class="text-center mb-5"><span>Món Chính</span></h1></div>
-  <%= render 'home/intro_products', products: @foods, path: pages_foods_path %>
+  <%= render 'intro_products', products: @foods, path: pages_foods_path %>
 </div>
 
 <div class="container mb-4" id="products-listing">
   <div class="strike-under"><h1 class="text-center mb-5"><span>Thức Uống</span></h1></div>
-  <%= render 'home/intro_products', products: @drinks, path: pages_drinks_path %>
+  <%= render 'intro_products', products: @drinks, path: pages_drinks_path %>
 </div>
 
-<%= render "home/feedback" %>
+<%= render "feedback" %>
 
-<%= render "home/features" %>
+<%= render "features" %>
 

@@ -45,10 +45,7 @@
               <span class="card-text text-danger fs-4"><%= number_to_currency(tong_tien(tam_tinh(@cart)), unit:"", precision: 0, delimiter:'.') %>đ</span>
             </div>
             <div class="card-title float-end fw-light"><small>(Đã bao gồm VAT nếu có)</small></div>
-            <%# <%= link_to "Thanh Toán", pages_pay_path, class:"btn btn-danger w-100 mt-4 mb-2" %> 
-            <%= button_to 'Đặt Hàng', 
-              new_order_path, 
-              :method => :get, class:"btn btn-danger w-100 mt-4 mb-2" %><br>
+            <div class="btn btn-danger w-100 mt-4 mb-2">Thanh Toán</div>
           </div>
         </div>
       </div>

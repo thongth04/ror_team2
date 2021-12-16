@@ -4,7 +4,7 @@
     <div class="card-body">
       <h5 class="card-title"><%= truncate product.title, length:27 %></h5>
       <p class="card-text text-success fs-5 mb-1"><%= number_to_currency(product.price, unit:"", precision: 0, delimiter:'.') %> đ</p>
-      <%= button_to "Đặt Món", product_details_path(product), method: :get, params: { product_id: product.id }, class: "btn btn-success float-end" %>
+      <%= link_to "Đặt Món", product_details_path(product), class: "btn btn-success float-end" %>
     </div>
   </div>
 </div>

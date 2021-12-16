@@ -1,4 +1,4 @@
-food = Product.create([
+food = Product.create( [
   {
     title: "Giò heo hầm pate",
     price: 168000,

@@ -1,0 +1,13 @@
+#cart-item .link-to {
+  text-decoration: none;
+  color: black;
+}
+#cart-item .link-to:hover {
+  color: blue;
+}
+
+#cart-item .img {
+  width: 100px;
+  height: 80px;
+  border: 3px solid rgb(35, 175, 218);
+}
