@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  include OrderItemsHelper
+  include OrdersHelper
   before_action :set_order, only: %i[ show edit update destroy ]
 
   # GET /orders or /orders.json
@@ -29,7 +29,7 @@ class OrdersController < ApplicationController
   def create
     @cart = current_user.cart
     @order = current_user.orders.new(order_params)
-    create_order_items(@order, @cart)
+    create_order_from_cart(@order, @cart)
     # @order.add_cart_items_from_cart(current_user)
 
     respond_to do |format|

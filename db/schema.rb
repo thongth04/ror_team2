@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 2021_12_16_154809) do
     t.string "phone"
     t.string "pay_type"
     t.string "order_form"
+    t.integer "total"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
