@@ -14,7 +14,9 @@ module CartsHelper
   end
 
   def tong_tien(tam_tinh, giam_gia=20000)
-    tam_tinh - giam_gia
+    @cart.total = tam_tinh - giam_gia
+    @cart.save
+    @cart.total
   end
 
 end

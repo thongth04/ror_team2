@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  include OrdersHelper
   before_action :set_order, only: %i[ show edit update destroy ]
 
   # GET /orders or /orders.json
@@ -26,11 +27,14 @@ class OrdersController < ApplicationController
 
   # POST /orders or /orders.json
   def create
+    @cart = current_user.cart
     @order = current_user.orders.new(order_params)
+    create_order_from_cart(@order, @cart)
     # @order.add_cart_items_from_cart(current_user)
 
     respond_to do |format|
       if @order.save
+        @cart.destroy
         # Cart.destroy(session[:cart_id])
         # session[:cart_id] = nil
         format.html { redirect_to @order, notice: "Bạn đã đặt hàng thành công" }
