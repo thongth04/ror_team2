@@ -8,7 +8,7 @@
       <p class="display-5 fst-italic"><%= @product.title %></p>
       <p>------------------------------------------------------</p>
       <p class="mt-3"><b>Mô tả: &ensp;</b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem est aspernatur nam aliquid, iusto impedit cupiditate necessitatibus ipsum saepe corrupti!</p>
-      <p class="fs-1 text-success"><%= number_to_currency(@product.price, unit:"", precision: 0, delimiter:'.') %> đ</p>
+      <p class="fs-1 text-danger"><%= number_to_currency(@product.price, unit:"", precision: 0, delimiter:'.') %> đ</p>
 
       <%= form_with model: [ @product, @product.cart_items.build ] do |form| %>
         <p><%= form.label "Số lượng:", class:"fw-bold" %></p>
