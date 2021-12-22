@@ -5,12 +5,14 @@ class PagesController < ApplicationController
     @drinks = Product.where(product_type: 'drink').limit(8)
   end
 
-  def foods
-    @foods = Product.where(product_type: 'food').paginate(:page => params[:page], :per_page => 16)
+  def search_results
+    Product.search(params[:term])
   end
-  
+  def foods
+    @foods = search_results.where(product_type: 'food').paginate(:page => params[:page], :per_page => 16)
+  end
   def drinks
-    @drinks = Product.where(product_type: 'drink').paginate(:page => params[:page], :per_page => 16)
+    @drinks = search_results.where(product_type: 'drink').paginate(:page => params[:page], :per_page => 16)
   end
   
 end
