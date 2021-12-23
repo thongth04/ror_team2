@@ -1,5 +1,4 @@
-<select name="city" class="filter-form">
-  <option value="Berlin">Berlin</option>
-  <option value="Chicago">Chicago</option>
-  <option value="Madrid">Madrid</option>
-</select>
+<%=  form_with url: path, method: :get do |form| %>
+  <%= form.select :option, [["Giá tăng dần", "price_asc"], ["Giá giảm dần", "price_desc"]],
+                          {include_blank: "Lọc sản phẩm"}, {class:"filter-form"} %>
+<% end %>

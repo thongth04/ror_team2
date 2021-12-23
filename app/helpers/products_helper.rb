@@ -1,18 +1,18 @@
 module ProductsHelper
-
-  def fill_out_attr
-      products = Product.select{ |product| product.id > 20 }
-      for product in products
-      product[:product_type] = "food"
-      product.save
-      end
-  end
   
-  def search(term)
-    if term
-      where('title LIKE ?', "%#{term}%")
+  def search(object, keyword)
+    if keyword
+      object.where('title LIKE ?', "%#{keyword}%")
     else
-      all
+      object
+    end
+  end
+
+  def filter(object, option)
+    case option
+      when "price_asc" then object.order(price: :asc)
+      when "price_desc" then object.order(price: :desc)
+      else object
     end
   end
 
