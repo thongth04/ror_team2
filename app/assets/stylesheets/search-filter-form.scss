@@ -1,0 +1,37 @@
+.search-form {
+  display: block;
+  .search-input {
+    width: 170px;
+    padding: 7px 10px;
+    border: 1px solid lightgray;
+    border-radius: 5px 0 0 5px;
+  }
+  .search-input:focus{
+    outline: 2px solid lightblue;
+    z-index: 1;
+  }
+  .search-submit {
+    border: 1px solid lightgray;
+    border-radius: 0 5px 5px 0;
+  }
+  .search-submit:focus {
+    outline: 2px solid lightblue;
+    z-index: 1;
+  }
+}
+
+.filter-form {
+  display: block;
+  margin-right: 20px;
+  width: 150px;
+  padding: 7px 10px;
+  border: 1px solid lightgray;
+  border-radius: 20px;
+}
+.filter-form:hover {
+  cursor: pointer;
+}
+.filter-form:focus {
+  outline: 2px solid lightblue;
+  z-index: 1;
+}

@@ -1,29 +1,23 @@
-<div class="container mb-5 mt-5" id="products-listing">
-  <div class="pd-5">
+<div class="my-4" id="products-listing">
+  <h1 class="display-4 text-center mb-3"><span><%= yield :page_title %></span></h1>
 
-    <div class="strike-under">
-      <h1 class="text-center mb-4"><span><%= yield :page_title %></span></h1>
-    </div>
+  <div class="d-flex justify-content-between mb-4" style="margin-left:90px; margin-right:50px">
+    <%= render "shared/filter_form", path: path%>
+    <%= render "shared/search_form", path: path %>
+  </div>
 
-    <div class="row">
-      <% if products.count == 0 %>
-        <p class="fs-4 ms-4 mt-4">Cannot find any products</p>
-      <% elsif products.count == 1 %>
+  <div class="container">
+    <% if products.count == 0 %>
+      <p class="fs-4 ms-4 mt-4">Cannot find any products</p>
+    <% else %>
+      <div class="grid-list mb-3">
         <% products.each do |product| %>
           <%= render 'product', product: product %>
         <% end %>
-      <% else %>
-        <div class="apple_pagination">
-          <%= will_paginate products, :container => false %>
-        </div>
-        <% products.each do |product| %>
-          <%= render 'product', product: product %>
-        <% end %>
-        <div class="apple_pagination">
-          <%= will_paginate products, :container => false %>
-        </div>
-      <% end %>
-    </div>
-
+      </div>
+      <div class="apple_pagination">
+        <%= will_paginate products, :container => false %>
+      </div>
+    <% end %>
   </div>
 </div>

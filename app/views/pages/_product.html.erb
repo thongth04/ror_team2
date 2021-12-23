@@ -1,10 +1,10 @@
-<div class="col ms-2 mb-3">
-  <div class="card mb-3" style="width: 18rem;">
+<div class="col">
+  <div class="card" style="width: 19rem;">
     <img class="card-img-top" src="<%= product.image_url %>" alt="image.jpg">
     <div class="card-body">
       <h5 class="card-title"><%= truncate product.title, length:27 %></h5>
-      <p class="card-text text-success fs-5 mb-1"><%= number_to_currency(product.price, unit:"", precision: 0, delimiter:'.') %> đ</p>
-      <%= link_to "Đặt Món", product_details_path(product), class: "btn btn-success float-end" %>
+      <p class="card-text text-danger fs-5 mb-1"><%= number_to_currency(product.price, unit:"", precision: 0, delimiter:'.') %> đ</p>
+      <%= link_to "Đặt Món", product_details_path(product), class: "btn btn-danger float-end" %>
     </div>
   </div>
 </div>

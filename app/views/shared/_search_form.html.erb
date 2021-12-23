@@ -1,0 +1,4 @@
+<%= form_tag(path, method: :get, class: "d-flex search-form") do %>
+  <%= text_field_tag(:term, params[:term], placeholder: "Tìm sản phẩm", class:"search-input") %>
+  <%= submit_tag('Tìm kiếm', class:"search-submit") %>
+<% end %>
