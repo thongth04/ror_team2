@@ -1,9 +1,9 @@
 <div class="card mx-auto mb-3" style="max-width: 1000px; min-height: 200px">
 <div class="row g-0">
-<img class="card-img-top" src="<%= product.image_url %>" alt="image.jpg" style:"max-width: 200px;">
+<img class="card-img-top" src="<%= product.image_url %>" alt="image.jpg" style="max-width: 200px;">
 
     <div class="col-md-6">
-        <div class="card-body"
+        <div class="card-body">
             <p class="card-text"><b>Title: &ensp;</b><%= product.title %></p>
             <p class="card-text"><b>Type: &ensp;</b><%= product.product_type %></p>
             <p class="card-text"><b>Price: &ensp;</b><%= number_to_currency(product.price, unit:"", precision: 0, delimiter:',') %> VND</p>

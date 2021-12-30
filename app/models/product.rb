@@ -3,10 +3,10 @@ class Product < ApplicationRecord
   has_many :order_items
   
   def self.fill_out_attr
-      products = Product.select{ |product| product.id > 20 }
+      products = Product.all 
       for product in products
-      product[:product_type] = "food"
-      product.save
+        product.quantity = 40
+        product.save
       end
   end
   
@@ -17,6 +17,16 @@ class Product < ApplicationRecord
       all
     end
   end
+  
+  def self.filter(tag)
+    if tag
+      where(product_type:tag)
+    else
+      all
+    end
+  end
+
+  
   
 end
 

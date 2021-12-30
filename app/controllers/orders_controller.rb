@@ -34,6 +34,7 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
+        update_product_quantity(@order)
         @cart.destroy
         # Cart.destroy(session[:cart_id])
         # session[:cart_id] = nil

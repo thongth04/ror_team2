@@ -1,0 +1,38 @@
+<div class="card mx-auto mb-3" style="max-width: 1000px; min-height: 200px">
+  <table class="table colorloeloet table-striped " >
+    <thead>
+      <tr>
+        <th scope="col">STT</th>
+        <th scope="col">Tên SP</th>
+         <th scope= "col">Phân loại</th>
+        <th scope = "col"> Tổng SL </th>
+        <th scope="col">SL tồn kho</th>  
+        <th scope = "col">SL Bán</th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+      <div class="px-2 float-end" >
+            <%= form_tag(warehouses_index_path, method: :get) do %>
+              <%= text_field_tag(:search, params[:search], class:"float-end w-35", placeholder: "Type product name") %>
+              <%= submit_tag('Search', class: "float-end btn btn-outline-secondary") %>
+            <% end %>
+            <%= render 'category' %>
+      </div>
+      <% if @products.count > 0 %>
+        <% stt = 1 %>
+        <% @products.each do |product| %>
+          <%= render 'item', product: product, stt: stt %>
+          <% stt += 1 %>
+        <% end %>
+      <% else %>  
+        <p class="fs-4 ms-4 mt-4">Cannot find any products</p>
+      <% end %>
+    </tbody>
+      
+  </table>
+  <div class="apple_pagination">
+    <%= will_paginate @products, :container => false %>
+  </div> 
+</div>

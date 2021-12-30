@@ -23,5 +23,6 @@ Rails.application.routes.draw do
   end
   
   resources :orders
-  
+  get 'warehouses/index'
+  get 'warehouses/products'
 end

@@ -1,0 +1,8 @@
+<div class="d-flex justify-content-center mb-4">
+    <%= link_to "All", warehouses_index_path, class:"btn btn-outline-secondary rounded-pill mx-2 px-4" %>
+    <%= button_to "Foods", warehouses_index_path, method: :get, params: { product_type_tag: "food" }, class:"btn btn-outline-secondary rounded-pill mx-2 px-4" %>
+    <%= button_to "Drinks", warehouses_index_path, method: :get, params: { product_type_tag: "drink" }, class:"btn btn-outline-secondary rounded-pill mx-2 px-4" %>
+
+    <%# <%= button_to "A-Z", warehouses_index_path, method: :get, params: { order_by( title: :ASC) }, class:"btn btn-outline-secondary rounded-pill mx-2 px-4" %>
+    <%# <%= button_to "Z-A", warehouses_index_path, method: :get, params: { order_by( title: :DESC )}, class:"btn btn-outline-secondary rounded-pill mx-2 px-4" %> 
+</div>
