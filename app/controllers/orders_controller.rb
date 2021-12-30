@@ -1,6 +1,9 @@
 class OrdersController < ApplicationController
   include OrdersHelper
+  before_action :authenticate_user!
+  before_action :require_admin, only: [:index]
   before_action :set_order, only: %i[ show edit update destroy ]
+  before_action :require_same_user, only: [:show, :edit, :update, :destroy]
 
   # GET /orders or /orders.json
   def index
@@ -77,5 +80,12 @@ class OrdersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def order_params
       params.require(:order).permit(:name, :address, :phone, :pay_type, :order_form, :user_id)
+    end
+
+    def require_same_user
+      if current_user != @order.user && !current_user.admin?
+        flash[:alert] = "You can only access your own orders"
+        redirect_to root_path
+      end
     end
 end

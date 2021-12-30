@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+  before_action :require_admin
   before_action :find_user, except: [:index]
 
   def index
@@ -26,6 +28,7 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:username, :email, :phone, :address)
     end
+
     def find_user
       @user = User.find(params[:id])
     end
