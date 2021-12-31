@@ -8,8 +8,8 @@ class PagesController < ApplicationController
 
   def search_and_filter
     products = Product.all
-    products = filter(products, params[:option])
     products = search(products, params[:term])
+    products = filter(products, params[:option])
   end
 
   def foods

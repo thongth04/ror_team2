@@ -1,4 +1,4 @@
-<%=  form_with url: path, method: :get do |form| %>
-  <%= form.select :option, [["Giá tăng dần", "price_asc"], ["Giá giảm dần", "price_desc"]],
-                          {include_blank: "Lọc sản phẩm"}, {class:"filter-form"} %>
-<% end %>
+<div class="d-flex filter-form">
+  <%= button_to "Giá tăng dần", path, method: :get, params: { option: "price_asc" }, class:"button btn-increase" %>
+  <%= button_to "Giá giảm dần", path, method: :get, params: { option: "price_desc" }, class:"button btn-descrease" %>
+</div>

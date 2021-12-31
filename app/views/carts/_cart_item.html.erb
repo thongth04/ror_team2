@@ -14,9 +14,9 @@
 
     <div class="col-sm-2 d-flex align-items-center">
       <div class="group-input d-flex">
-        <div class="btn rounded-start">-</div>
+        <div class="btn rounded-start" onclick="console.log('descreased')">-</div>
         <input type="number" value="<%= cart_item.quantity %>" min="1" class="text-center" id="quantity" >
-        <div class="btn rounded-end">+</div>
+        <div class="btn rounded-end" onclick="console.log('increased')">+</div>
       </div>
     </div>
 
@@ -33,4 +33,3 @@
     </div>
   </div>
 </div>
-<%= javascript_pack_tag 'cart', 'data-turbolinks-track': 'reload' %>
