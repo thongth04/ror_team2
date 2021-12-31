@@ -1,14 +1,15 @@
-const increaser = document.getElementById("increase");
-const descreaser = document.getElementById("descrease");
-const quantity = document.getElementById("quantity");
+const increaser = document.getElementById("btnIncrease");
+const descreaser = document.getElementById("btnDescrease");
+const quantity = document.getElementById("itemQuantity");
 
-increaser.addEventListener('click', () => {
+
+increaser && increaser.addEventListener('click', () => {
   quantity.value = parseInt(quantity.value) + 1
   console.log(quantity.value);
 });
 
 
-descreaser.addEventListener('click', () => {
+descreaser && descreaser.addEventListener('click', () => {
   quantity.value = parseInt(quantity.value);
   if (quantity.value > 1) {
     quantity.value -= 1

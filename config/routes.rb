@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'pages/foods'
   get 'pages/drinks'
   get 'admin/dashboard'
+  get 'pages/purchased_orders'
 
   devise_for :users
   

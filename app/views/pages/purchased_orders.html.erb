@@ -1,0 +1,35 @@
+<div class="container mb-5">
+  <h1 class="my-4">Đơn hàng của tôi</h1>
+
+  <% if @orders.count > 0 %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Mã đơn hàng</th>
+          <th scope="col">Ngày mua</th>
+          <th scope="col">Sản phẩm</th>
+          <th scope="col">Tổng tiền</th>
+          <th scope="col">Trạng thái đơn hàng</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @orders.each do |order| %>
+          <tr>
+            <th scope="row" class="ps-4 py-4"><%= link_to "HD000#{order.id}", order_path(order), class:"text-decoration-none" %></th>
+            <td class="py-4"><%= order.created_at.strftime("%d-%m-%Y") %></td>
+            <td class="py-4" style="width:40%">
+              <% order.order_items.each do |item| %>
+                <%= item.product.title %>
+                <%= "-" if item != order.order_items.last %>
+              <% end %>
+            </td>
+            <td class="py-4"><%= number_to_currency(order.total, unit:"", precision: 0, delimiter:'.') %> đ</td>
+            <td class="py-4">Giao hàng thành công</td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p class="fs-4 ms-4 mt-4">Oh! Bạn chưa đặt đơn hàng nào cả. Mua hàng ngay nào!</p>
+  <% end %>
+</div>

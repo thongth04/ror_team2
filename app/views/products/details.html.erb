@@ -13,9 +13,9 @@
       <%= form_with model: [ @product, @product.cart_items.build ] do |form| %>
         <p><%= form.label "Số lượng:", class:"fw-bold" %></p>
         <div class="group-input d-flex">
-          <div class="btn rounded-start">-</div>
-          <%= form.number_field :quantity, min: 1, step: 1, class:"text-center" %>
-          <div class="btn rounded-end">+</div>
+          <div class="btn rounded-start" id="btnDescrease">-</div>
+          <%= form.number_field :quantity, min: 1, step: 1, class:"text-center", id:"itemQuantity" %>
+          <div class="btn rounded-end" id="btnIncrease">+</div>
         </div>
         <div style="position:absolute; bottom:30px; right:70px;">
           <%= form.submit "Thêm Vào Giỏ Hàng", class:"btn btn-danger mt-3 px-5 py-2 fs-4"%>
@@ -24,3 +24,4 @@
     </div>
   </div>
 </div>
+<%= javascript_pack_tag 'cart', 'data-turbolinks-track': 'reload' %>

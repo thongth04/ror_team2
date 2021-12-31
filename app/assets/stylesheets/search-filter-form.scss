@@ -1,5 +1,4 @@
 .search-form {
-  display: block;
   .search-input {
     width: 170px;
     padding: 7px 10px;
@@ -21,17 +20,18 @@
 }
 
 .filter-form {
-  display: block;
-  margin-right: 20px;
-  width: 150px;
-  padding: 7px 10px;
-  border: 1px solid lightgray;
-  border-radius: 20px;
-}
-.filter-form:hover {
-  cursor: pointer;
-}
-.filter-form:focus {
-  outline: 2px solid lightblue;
-  z-index: 1;
+  .button {
+    padding: 7px 10px;
+    border: 1px solid lightgray;
+  }
+  .button:focus {
+    outline: 2px solid lightblue;
+  }
+  .button.btn-increase {
+    border-radius: 20px 0 0 20px;
+  }
+  .button.btn-descrease {
+    border-radius: 0 20px 20px 0;
+    border-left: 0;
+  }
 }
