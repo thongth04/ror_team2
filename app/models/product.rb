@@ -13,5 +13,21 @@ class Product < ApplicationRecord
   # validates :quantity, presence: true
   # validates :image_url, presence: true
 
-end
 
+  def self.search(term)
+    if term
+      where('title LIKE ?', "%#{term}%")
+    else
+      all
+    end
+  end
+
+  def self.filter(tag)
+    if tag
+      where(product_type: tag)
+    else
+      all
+    end
+  end
+
+end

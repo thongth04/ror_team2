@@ -8,4 +8,11 @@ module OrdersHelper
     order.total = cart.total
   end
 
+  def update_product_quantity(order)
+    for item in order.order_items
+      item.product.quantity -= item.quantity
+      item.product.save
+    end
+  end
+
 end
