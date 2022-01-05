@@ -29,5 +29,12 @@ class Product < ApplicationRecord
       all
     end
   end
-
+  def self.fill_out_attr
+    products = Product.all
+    for product in products
+      # product[:sku] = "SP1000" + product[:id].to_s
+      product[:quantity] = 40
+      product.save
+    end
+  end
 end
