@@ -1,47 +1,81 @@
 <p>
-  <strong>Name:</strong>
-  <%= @order.name %>
+  <strong><h1 class = "text-center">Thông Tin Đặt Hàng</h1></strong>
+  <hr>
 </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @order.address %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @order.phone %>
-</p>
-
-<p>
-  <strong>Pay type:</strong>
-  <%= @order.pay_type %>
-</p>
-
-<p>
-  <strong>Order form:</strong>
-  <%= @order.order_form %>
-</p>
-
-<div class="card p-3">
-    <h5>Chuẩn bị ngân lượng sẵn đi bn nhé, shipper sắp tới rồi đấy :)</h5>
-    <% @order.order_items.each do |item| %>
-      <div class="d-flex justify-content-between mx-4">
-        <p class="w-50"><%= item.product.title %></p>
-        <p class="w-25">x<%= item.quantity.to_s %></p>
-        <p class="w-25"><%= thanh_tien(item) %>đ</p>
-      </div>
-    <% end %>
-    <div class="d-flex justify-content-between mx-4">
-      <h5 class="w-75">Giảm giá</h5>
-      <p class="w-25">-20000đ</p>
+<form class = "container">
+  <strong><h3 class="text-danger">Thông Tin Người Nhận</h3></strong>
+  <hr>
+  <div class="row">
+    <div class="form-group col">
+      <p>
+        <label><strong>Tên người đặt hàng:</strong></label>
+        <label class ="form-label form-label-top"><%= @order.name %></label>
+      </p>
     </div>
-    <div class="d-flex justify-content-between mx-4">
-      <h5 class="w-75">TỔNG CỘNG</h5>
-      <p class="w-25"><%= @order.total %>đ</p>
+    <div class="form-group col ">
+      <p>
+        <strong>Địa chỉ:</strong>
+        <%= @order.address %>
+      </p>
+    </div>
+    <div class="form-group col">
+      <p>
+        <strong>Số điện thoại:</strong>
+        <%= @order.phone %>
+      </p>
+    </div>
+  </div>
+  <div class ="row">
+    <div class="form-group col-4">
+      <p>
+        <strong>Hình thức thanh toán:</strong>
+        <%= @order.pay_type %>
+      </p>
+    </div>
+    <div class="form-group col-8">
+      <p>
+        <strong>Hình thức giao hàng:</strong>
+        <%= @order.order_form %>
+      </p>
+    </div>
+  </div>
+</form>
+
+
+<div class="card p-3 container">
+    <strong><h3 class="text-danger">Thông Tin Sản Phẩm</h3></strong>
+    <hr>
+    <table class="table">
+      <tr class = "text-center border">
+        <td class ="col"><strong>Tên món ăn</strong></td>
+        <td class ="col"><strong>Số lượng</strong></td>
+        <td class ="col"><strong>Tổng tiền</strong></td>
+      </tr>
+      <% @order.order_items.each do |item| %>
+      <tr class = "text-center border">
+        <td class ="col"><%= item.product.title %></td>
+        <td class ="col">x<%= item.quantity.to_s %></td>
+        <td class ="col"><%= thanh_tien(item) %>đ</td>
+      </tr>
+      <% end %>
+    </table>
+  
+  <hr>
+    <div class="row float-end">
+      <div class = "col-8 d-flex ">
+        <label class= "w-75"><strong>Giảm Giá</strong></label>
+        <label class= "w-25 text-danger">-20000đ</label>
+      </div>
+      <div class = "col-8 d-flex">
+        <label class= "w-75"><strong>TỔNG CỘNG</strong></label>
+        <label class= "w-25 text-danger"><%= @order.total %>đ</label>
+      </div>
     </div>
   </div>
 
 <%# <%= link_to 'Edit', edit_order_path(@order) %> 
-<%# <%= link_to 'Back', orders_path %> 
-<%= link_to 'Back', root_path %> 
+<%# <%= link_to 'Back', orders_path %>
+<div class = "card-body float-end container"> 
+  <%= link_to 'OK', root_path, class:"btn btn-success" %> 
+</div>
