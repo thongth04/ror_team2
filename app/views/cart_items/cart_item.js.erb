@@ -1,0 +1,2 @@
+$("#item-<%= @cart_item.id %>").val("<%= @cart_item.quantity %>");
+$("#item-<%= @cart_item.id %>-total-cost").text("<%= number_to_currency(thanh_tien(@cart_item), unit:"", precision: 0, delimiter:'.') %>đ");

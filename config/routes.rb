@@ -21,8 +21,10 @@ Rails.application.routes.draw do
   get '/products/:id/details', to: 'products#details', as:'product-details'
   
   resources :carts do
-    resources :cart_items
+    resources :cart_items, except: [:update]
   end
+  put "cart/cart_item" => "cart_items#update"
+  patch "cart/cart_item" => "cart_items#update"
   
   resources :orders
   

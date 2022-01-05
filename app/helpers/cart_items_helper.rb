@@ -4,7 +4,8 @@ module CartItemsHelper
     cart_item.product.price * cart_item.quantity
   end
 
-  def increase_by_one(item)
+  def increase_by_one(id)
+    item = CartItem.find(id) 
     item.quantity += 1
     item.save
   end

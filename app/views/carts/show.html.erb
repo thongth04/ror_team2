@@ -1,4 +1,4 @@
-<div class="container mb-5 mx-auto">
+<div class="container mb-5 mx-auto items-container">
   <h3 class="mt-4 mb-3">GIỎ HÀNG</h3>
 
   <% if @cart.cart_items.count > 0 %>
@@ -14,7 +14,7 @@
           </div>
         </div>
         <% @cart.cart_items.each do |item| %>
-          <%= render 'cart_item', cart_item: item %>
+          <%= render 'cart_items/cart_item', cart_item: item %>
         <% end %>
       </div>
 

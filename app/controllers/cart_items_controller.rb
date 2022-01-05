@@ -16,6 +16,26 @@ class CartItemsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
+  def update
+    cart_item = @cart.cart_items.find(params[:item_id])
+    
+    if params[:is_increase]
+      if params[:is_increase] == "true"
+        cart_item.increase_by_one
+      else
+        cart_item.descrease_by_one
+      end
+    end
+    cart_item.save
+
+    respond_to do |format|
+      format.js { 
+        @cart_item = cart_item
+        render "cart_items/cart_item"
+      }
+    end
+  end
+
   def destroy
     @cart_item = @cart.cart_items.find(params[:id])
     @cart_item.destroy

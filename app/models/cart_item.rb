@@ -4,4 +4,14 @@ class CartItem < ApplicationRecord
 
   attribute :quantity, default: 1
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
+
+  
+  def increase_by_one
+    self.quantity += 1
+  end
+
+  def descrease_by_one
+    self.quantity -= 1 if self.quantity > 1
+  end
+
 end
