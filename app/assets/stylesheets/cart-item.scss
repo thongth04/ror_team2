@@ -7,7 +7,38 @@
 }
 
 #cart-item .img {
-  width: 100px;
-  height: 80px;
-  border: 3px solid rgb(35, 175, 218);
+  width: 90px;
+  height: 70px;
+  border: 2px solid rgb(35, 175, 218);
+}
+
+#cart-item .group-input {
+  .btn {
+    border-radius: 0;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    background-position: center;
+    border: 1px solid lightgray;
+  }
+  .btn:hover {
+    background-color: lightgray;
+  }
+  .btn.increase {
+    background-image: url(https://frontend.tikicdn.com/_desktop-next/static/img/icons/increase.svg);
+  }
+  .btn.descrease {
+    background-image: url(https://frontend.tikicdn.com/_desktop-next/static/img/icons/decrease.svg);
+  }
+  input {
+    width: 40px;
+    height: 30px;
+    border: 1px solid lightgray;
+    z-index: 2;
+    font-size: 13px;
+  }
+  input:focus {
+    outline-style: solid;
+    outline-color: lightblue;
+  }
 }

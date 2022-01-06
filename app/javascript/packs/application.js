@@ -12,6 +12,7 @@ Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
 require("jquery");
-require("./cart_item")
+require("./cart_item");
+require("./cart")
 
 global.$ = jQuery;
