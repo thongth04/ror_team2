@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_one :cart, dependent: :destroy
   has_many :orders, dependent: :destroy
+  has_many :reviews
+
 #   before_save { self.email = email.downcase }
 
 #   validates :username, presence: true,

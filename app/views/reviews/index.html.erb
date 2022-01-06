@@ -1,0 +1,12 @@
+
+<% if @review.count > 0 %>
+<% @products.each do |product| %>
+  <%= render 'product', product: product %>
+<% end %>
+<div class="apple_pagination">
+  <%= will_paginate @review, :container => false %>
+</div>  
+<% else %>
+<p class="fs-4 ms-4 mt-4">Opp!!! Cannot find any Review</p>
+<% end%>
+<%= link_to "New review", new_review_path, class: "fs-6 btn btn-outline-secondary" %>

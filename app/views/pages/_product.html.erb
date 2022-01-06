@@ -5,6 +5,9 @@
       <h5 class="card-title"><%= truncate product.title, length:27 %></h5>
       <p class="card-text text-danger fs-5 mb-1"><%= number_to_currency(product.price, unit:"", precision: 0, delimiter:'.') %> đ</p>
       <%= link_to "Đặt Món", product_details_path(product), class: "btn btn-danger float-end" %>
+      <%= link_to "review", reviews_path %>
+      
+      
     </div>
   </div>
 </div>
