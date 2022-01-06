@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   
   resources :products do
     resources :cart_items
-  
+    resources :reviews
   end
   get '/products/:id/details', to: 'products#details', as:'product-details'
   
@@ -26,5 +26,4 @@ Rails.application.routes.draw do
   end
   
   resources :orders
-  resources :reviews
 end

@@ -1,0 +1,13 @@
+<h2>Add a review:</h2>
+<%= form_with model: [ @product, @product.reviews.build ] do |form| %>
+  <p>
+    <%= current_user.username%>
+  </p>
+  <p>
+    <%= form.label "Review" %><br>
+    <%= form.text_area :content %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
