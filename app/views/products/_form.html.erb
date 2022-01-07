@@ -8,18 +8,18 @@
         <%= render "shared/error_messages", obj: @product %>
 
         <div class="form-group mt-3 d-flex justify-content-between">
-          <b><%= f.label :Title %>:</b>
+          <b><%= f.label :title %>:</b>
           <%= f.text_field :title, autofocus: true, class: "form-control p-2 w-75", placeholder: "Tên Sản phẩm" %>
         </div>
 
         <div class="form-group mt-3 d-flex justify-content-between">
-          <b><%= f.label :Description %>:</b> 
+          <b><%= f.label :description %>:</b> 
           <%= f.text_area :description, class: "form-control p-2 w-75", placeholder: "Description" %>
         </div>
 
         <div class="form-group mt-3 d-flex justify-content-between">
           <b><%= f.label :category %>:</b> 
-          <%= f.select :product_type, [["Drinks", 'drink'], ["Foods", 'food'], ["Others", 'others']], {}, { class: "p-2 w-75" } %>
+          <%= f.select :product_type, [["Drinks", 'drink'], ["Foods", 'food'], ["Others", 'other']], {}, { class: "p-2 w-75" } %>
         </div>
         
         <div class="form-group mt-3 d-flex justify-content-between">
@@ -32,16 +32,18 @@
           <%= f.number_field :quantity, in: 0..100, step: 1, class: "form-control p-2 w-75", placeholder: "Quantity" %>
         </div>
         
-        <div class="field">
-        <%= f.label :image_url %>
-        <%= f.text_field :image_url %>
-      </div>
+        <div class="form-group mt-3 d-flex justify-content-between">
+          <b><%= f.label "Image URL" %>:</b>
+          <%= f.text_field :image_url, class: "form-control p-2 w-75", placeholder: "Image URL" %>
+        </div>
 
         <div class="actions mt-4 mb-2">
           <%= f.submit "Save product", class: "btn btn-success w-100 p-2" %>
         </div>
         <div class="text-center"><%= link_to "Cancel", products_path, class:"text-decoration-none text-success"%></div>
       <% end %>
+    </div>
+
     </div>
   </div>
 </div>

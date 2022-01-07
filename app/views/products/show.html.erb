@@ -1,15 +1,16 @@
-<div class="card border-secondary mb-3">
-  <div class="card-body text-secondary">
-    <h5 class="card-title text-center"><p><b>Title: </b><%= @product.title %></p></h5>
-    <p class="card-price text-center">Price: &ensp;</b><%= number_to_currency(@product.price, unit:"", precision: 0, delimiter:',') %> VND</p>
-    <p class="card-price text-center">Product_type: </b><%= @product.product_type %> </p>
-    <p class="card-price text-center">Quantity: </b><%= @product.quantity %>  </p>
-    <p class="card-price text-center">Description: </b><%= @product.description %> </p>
-  </div>
-  
-  <%= image_tag @product.image_url , class:"rounded mx-auto d-block", style:"max-width: 800px;" %>
-
-  <div style=" bottom: 20px; right: 150px; z-index: 1">
-    <%= link_to "<< Back to Product", products_path, class: "btn btn-outline-success" %>
+<div class="container bg-light mt-4 mb-5 border rounded" style="position:relative;">
+  <div class="row p-5 pb-0" style="min-height:590px;">
+    <div class="col-md-5 mt-4">
+      <%= image_tag @product.image_url, width: 470, class: "border border-5 border-info rounded" %>
+    </div>
+    
+    <div class="col-md-6 fs-5" style="margin-left: 80px">
+      <p class="display-5 fst-italic"><%= @product.title %></p>
+      <p>------------------------------------------------------</p>
+      <p class="card-text"><b>Loại sản phẩm: </b><%= @product.product_type.upcase %></p>
+      <p class="mt-3"><b>Mô tả: &ensp;</b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem est aspernatur nam aliquid, iusto impedit cupiditate necessitatibus ipsum saepe corrupti!</p>
+      <p class="card-text"><b>Số lượng: </b><%= @product.quantity %></p>
+      <p class="fs-1 text-danger"><%= number_to_currency(@product.price, unit:"", precision: 0, delimiter:'.') %> đ</p>
+    </div>
   </div>
 </div>
