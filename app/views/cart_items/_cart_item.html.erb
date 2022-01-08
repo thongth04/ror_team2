@@ -16,13 +16,13 @@
       <div class="group-input d-flex change-quantity" data-item-id="<%=cart_item.id%>" 
           data-product-id="<%=cart_item.product.id%>" data-cart-id="<%=cart_item.cart.id%>">
         <div class="btn rounded-start descrease"></div>
-        <input type="number" value="<%=cart_item.quantity%>" min="1" class="text-center" id="item-<%= cart_item.id %>">
+        <input type="number" value="<%=cart_item.quantity%>" min="1" class="text-center" id="item-<%= cart_item.id %>" readonly>
         <div class="btn rounded-end increase"></div>
       </div>
     </div>
 
     <div class="col-sm-2 d-flex align-items-center text-danger fw-bold ps-5" id="item-<%= cart_item.id %>-total-cost">
-      <%= number_to_currency(thanh_tien(cart_item), unit:"", precision: 0, delimiter:'.') %>đ
+      <%= number_to_currency(cart_item.thanh_tien, unit:"", precision: 0, delimiter:'.') %>đ
     </div>
 
     <div class="col-sm-1 d-flex align-items-center">

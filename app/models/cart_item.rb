@@ -14,4 +14,7 @@ class CartItem < ApplicationRecord
     (self.quantity > 1) ? (self.quantity -= 1) : self.quantity
   end
 
+  def thanh_tien
+    self.product.price * self.quantity
+  end
 end

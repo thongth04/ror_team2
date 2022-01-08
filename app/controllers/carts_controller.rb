@@ -3,12 +3,15 @@ class CartsController < ApplicationController
   before_action :find_cart
 
   def show
+    @tam_tinh = @cart.total
+    @tong_tien = @cart.tong_tien(@tam_tinh)
   end
 
   def update
     respond_to do |format|
       format.js { 
         @tam_tinh = @cart.total
+        @tong_tien = @cart.tong_tien(@tam_tinh)
         render "carts/show"
       }
     end

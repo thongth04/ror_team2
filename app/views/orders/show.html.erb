@@ -29,7 +29,7 @@
       <div class="d-flex justify-content-between mx-4">
         <p class="w-50"><%= item.product.title %></p>
         <p class="w-25">x<%= item.quantity.to_s %></p>
-        <p class="w-25"><%= thanh_tien(item) %>đ</p>
+        <p class="w-25"><%= item.thanh_tien %>đ</p>
       </div>
     <% end %>
     <div class="d-flex justify-content-between mx-4">

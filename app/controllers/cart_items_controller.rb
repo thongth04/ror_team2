@@ -14,7 +14,7 @@ class CartItemsController < ApplicationController
       @cart_item = @cart.cart_items.create(cart_item_params)
       @cart_item.product_id = @product.id
       @cart_item.save
-      @cart.total += @cart_item.quantity * @cart_item.product.price
+      @cart.total += @cart_item.thanh_tien
     end
     @cart.save
     redirect_back(fallback_location: root_path)
@@ -43,7 +43,7 @@ class CartItemsController < ApplicationController
   def destroy
     @cart_item = @cart.cart_items.find(params[:id])
     @cart_item.destroy
-    update_cart(@cart)
+    @cart.update_cart_total
     redirect_to cart_path(@cart)
   end
 
@@ -58,15 +58,5 @@ class CartItemsController < ApplicationController
 
     def find_product
       @product = Product.find(params[:product_id])
-    end
-
-    def update_cart(cart)
-      cart.total = 0
-      if cart.cart_items.count > 0
-        for item in @cart.cart_items
-          cart.total += item.quantity * item.product.price
-        end
-      end
-      cart.save
     end
 end

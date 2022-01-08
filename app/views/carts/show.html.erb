@@ -33,7 +33,7 @@
             <hr>
             <div class="d-flex justify-content-between">
               <span class="card-text">Tạm tính</span>
-              <span class="card-text" id="cart-temp-total"><%= number_to_currency(@cart.total, unit:"", precision: 0, delimiter:'.') %>đ</span>
+              <span class="card-text" id="cart-temp-total"><%= number_to_currency(@tam_tinh, unit:"", precision: 0, delimiter:'.') %>đ</span>
             </div>
             <div class="d-flex justify-content-between">
               <span class="card-text">Giảm giá</span>
@@ -42,7 +42,7 @@
             <hr>
             <div class="d-flex justify-content-between">
               <span class="card-title fw-bold">Tổng cộng</span>
-              <span class="card-text text-danger fs-4" id="cart-total"><%= number_to_currency(tong_tien(@cart.total), unit:"", precision: 0, delimiter:'.') %>đ</span>
+              <span class="card-text text-danger fs-4" id="cart-total"><%= number_to_currency(@tong_tien, unit:"", precision: 0, delimiter:'.') %>đ</span>
             </div>
             <div class="card-title float-end fw-light"><small>(Đã bao gồm VAT nếu có)</small></div>
             <%= button_to 'Mua Hàng', new_order_path, :method => :get, class:"btn btn-danger w-100 mt-4 mb-2" %>
