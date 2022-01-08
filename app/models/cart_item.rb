@@ -11,7 +11,7 @@ class CartItem < ApplicationRecord
   end
 
   def descrease_by_one
-    self.quantity -= 1 if self.quantity > 1
+    (self.quantity > 1) ? (self.quantity -= 1) : self.quantity
   end
 
 end

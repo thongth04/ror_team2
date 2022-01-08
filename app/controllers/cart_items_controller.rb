@@ -6,27 +6,31 @@ class CartItemsController < ApplicationController
   def create
     existed_item = @cart.cart_items.where(product_id: params[:product_id])[0]
     if existed_item
-      existed_item.quantity += params[:cart_item][:quantity].to_i
+      upcoming_quantity = params[:cart_item][:quantity].to_i
+      existed_item.quantity += upcoming_quantity
       existed_item.save
+      @cart.total += upcoming_quantity * existed_item.product.price
     else
       @cart_item = @cart.cart_items.create(cart_item_params)
       @cart_item.product_id = @product.id
       @cart_item.save
+      @cart.total += @cart_item.quantity * @cart_item.product.price
     end
+    @cart.save
     redirect_back(fallback_location: root_path)
   end
 
   def update
     cart_item = @cart.cart_items.find(params[:item_id])
     
-    if params[:is_increase]
-      if params[:is_increase] == "true"
-        cart_item.increase_by_one
-      else
-        cart_item.descrease_by_one
-      end
+    if params[:is_increase] == "true"
+      cart_item.increase_by_one
+      @cart.total += cart_item.product.price
+    else
+      (@cart.total -= cart_item.product.price) if (cart_item.quantity > cart_item.descrease_by_one)
     end
     cart_item.save
+    @cart.save
 
     respond_to do |format|
       format.js { 
@@ -39,6 +43,7 @@ class CartItemsController < ApplicationController
   def destroy
     @cart_item = @cart.cart_items.find(params[:id])
     @cart_item.destroy
+    update_cart(@cart)
     redirect_to cart_path(@cart)
   end
 
@@ -46,10 +51,22 @@ class CartItemsController < ApplicationController
     def cart_item_params
       params.require(:cart_item).permit(:product_id, :quantity, :cart_id)
     end
+
     def find_cart
       @cart = current_user.cart
     end
+
     def find_product
       @product = Product.find(params[:product_id])
+    end
+
+    def update_cart(cart)
+      cart.total = 0
+      if cart.cart_items.count > 0
+        for item in @cart.cart_items
+          cart.total += item.quantity * item.product.price
+        end
+      end
+      cart.save
     end
 end

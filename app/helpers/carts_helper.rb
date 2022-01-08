@@ -5,18 +5,10 @@ module CartsHelper
     user.cart = Cart.new if user.cart.nil?
   end
 
-  def tam_tinh(cart)
-    cart.total = 0
-    for item in cart.cart_items
-      cart.total += thanh_tien(item)
-    end
-    cart.total
-  end
-
   def tong_tien(tam_tinh, giam_gia=20000)
-    @cart.total = tam_tinh - giam_gia
-    @cart.save
-    @cart.total
+    tong_tien = 0
+    (tam_tinh >= giam_gia) && (tong_tien = tam_tinh - giam_gia)
+    tong_tien
   end
 
 end

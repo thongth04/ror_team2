@@ -10,7 +10,6 @@ $(function(){
 
     console.log('is_increase ' + is_increase)
     
-    
     $.ajax({
       url: "/cart/cart_item",
       method: "PATCH",
@@ -20,12 +19,25 @@ $(function(){
               is_increase: is_increase,
             },
       success: function(){
-        console.log("success..");
+        console.log("item updated success..");
       },
       error: function() {
-        console.log('failure..')
+        console.log('item updated failure..');
+      },
+      complete: function() {
+          console.log("updating cart...");
+          $.ajax({
+            url: "/cart-update",
+            method: "PATCH",
+            // data: "",
+            success: function(){
+              console.log("cart update successful..");
+            },
+            error: function() {
+              console.log('cart update fail..');
+            }
+          });
       }
-    })
-    
+    });
   });
 });

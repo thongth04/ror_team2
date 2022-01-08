@@ -4,12 +4,9 @@
   <% if @cart.cart_items.count > 0 %>
     <div class="row">
       <div class="col-sm-9 items-listing">
-        <div class="card px-3 py-2 mb-3">
+        <div class="card px-4 py-2 mb-3">
           <div class="row" style="font-size:14px;">
-            <div class="col-sm-5">
-              <input type="checkbox" data-checkbox-id="cb-total" class="me-2 checkbox">
-              Tất cả (<%=@cart.cart_items.count%> sản phẩm)
-            </div>
+            <div class="col-sm-5">#Sản phẩm</div>
             <div class="col-sm-2">Đơn giá</div>
             <div class="col-sm-2">Số lượng</div>
             <div class="col-sm-2 ps-5">Thành tiền</div>
@@ -36,7 +33,7 @@
             <hr>
             <div class="d-flex justify-content-between">
               <span class="card-text">Tạm tính</span>
-              <span class="card-text" id="cart-temp-total"><%= number_to_currency(tam_tinh(@cart), unit:"", precision: 0, delimiter:'.') %>đ</span>
+              <span class="card-text" id="cart-temp-total"><%= number_to_currency(@cart.total, unit:"", precision: 0, delimiter:'.') %>đ</span>
             </div>
             <div class="d-flex justify-content-between">
               <span class="card-text">Giảm giá</span>
@@ -45,7 +42,7 @@
             <hr>
             <div class="d-flex justify-content-between">
               <span class="card-title fw-bold">Tổng cộng</span>
-              <span class="card-text text-danger fs-4" id="cart-total"><%= number_to_currency(tong_tien(tam_tinh(@cart)), unit:"", precision: 0, delimiter:'.') %>đ</span>
+              <span class="card-text text-danger fs-4" id="cart-total"><%= number_to_currency(tong_tien(@cart.total), unit:"", precision: 0, delimiter:'.') %>đ</span>
             </div>
             <div class="card-title float-end fw-light"><small>(Đã bao gồm VAT nếu có)</small></div>
             <%= button_to 'Mua Hàng', new_order_path, :method => :get, class:"btn btn-danger w-100 mt-4 mb-2" %>

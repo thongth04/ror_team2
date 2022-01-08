@@ -1,7 +1,6 @@
-<div class="card ps-3 pe-2 py-4 mb-3" id="cart-item">
+<div class="card p-4 mb-3" id="cart-item">
   <div class="row">
     <div class="col-sm-2 d-flex align-items-center">
-      <input type="checkbox" data-checkbox-id="<%=cart_item.id%>" class="me-3 checkbox">
       <img class="img" src="<%= cart_item.product.image_url %>">
     </div>
 
@@ -9,7 +8,7 @@
       <%= link_to cart_item.product.title, product_details_path(cart_item.product), class:"link-to" %>
     </div>
 
-    <div class="col-sm-2 d-flex align-items-center fw-bold" style="font-size:14px;">
+    <div class="col-sm-2 d-flex align-items-center fw-bold">
       <%= number_to_currency(cart_item.product.price, unit:"", precision: 0, delimiter:'.') %>đ
     </div>
 
@@ -22,7 +21,7 @@
       </div>
     </div>
 
-    <div class="col-sm-2 d-flex align-items-center text-danger fw-bold ps-5" style="font-size:14px;" id="item-<%= cart_item.id %>-total-cost">
+    <div class="col-sm-2 d-flex align-items-center text-danger fw-bold ps-5" id="item-<%= cart_item.id %>-total-cost">
       <%= number_to_currency(thanh_tien(cart_item), unit:"", precision: 0, delimiter:'.') %>đ
     </div>
 

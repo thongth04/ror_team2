@@ -13,6 +13,6 @@ Turbolinks.start();
 ActiveStorage.start();
 require("jquery");
 require("./cart_item");
-require("./cart")
+// require("./cart")
 
 global.$ = jQuery;
