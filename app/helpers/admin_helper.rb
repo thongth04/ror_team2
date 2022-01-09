@@ -8,4 +8,16 @@ module AdminHelper
     quantity
   end
   
+  
+  def sum_report
+    total = 0
+    orders = Order.all
+    
+    for order in orders
+      total += order.total 
+    end
+    total 
+  end
+
+
 end

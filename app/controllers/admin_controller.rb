@@ -12,5 +12,4 @@ class AdminController < ApplicationController
       @products = Product.search(params[:term]).paginate(page: params[:page], per_page: 12)
     end
   end
-
 end
