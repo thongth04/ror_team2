@@ -42,7 +42,7 @@
             </ul>
           </li>
           <li class="nav-item" id="shoppingCart">
-            <%= link_to cart_path(current_user.cart) do %>
+            <%= link_to cart_path(current_user.cart), class:"refresh" do %>
               <i class="fas fa-shopping-basket fs-3 text-secondary mt-1 me-4">
                 <span class="<%= "disabled" if current_user.cart.cart_items.empty? %>"><%= current_user.cart.cart_items.count %></span>
               </i>

@@ -13,5 +13,6 @@ Turbolinks.start();
 ActiveStorage.start();
 require("jquery");
 require("./cart");
+require("./turbolink_fixing")
 
 global.$ = jQuery;
