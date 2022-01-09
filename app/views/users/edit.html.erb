@@ -6,19 +6,27 @@
     <div class="card-body px-4">
       <%= form_with model: @user do |f| %>
         <div class="form-group">
-          <%= f.text_field :username, class: "form-control p-2 mb-3", placeholder: "Username" %>
+          <%= f.text_field :username, class: "form-control p-2 mb-3", placeholder: "Username", readonly: true %>
         </div>
 
         <div class="form-group">
-          <%= f.text_field :email, class: "form-control p-2 mb-3", placeholder: "Email" %>
+          <%= f.text_field :email, class: "form-control p-2 mb-3", placeholder: "Email", readonly: true %>
         </div>
         
         <div class="form-group">
-          <%= f.text_field :phone, class: "form-control p-2 mb-3", placeholder: "Phone" %>
+          <%= f.text_field :phone, class: "form-control p-2 mb-3", placeholder: "Phone", readonly: true %>
         </div>
 
         <div class="form-group">
-          <%= f.text_field :address, class: "form-control p-2 mb-3", placeholder: "Address" %>
+          <%= f.text_field :address, class: "form-control p-2 mb-3", placeholder: "Address", readonly: true %>
+        </div>
+
+        <div class="form-group">
+          <span><b>Quyền truy cập: &ensp;&ensp;</b></span>
+          <%= f.radio_button :admin, :true %>
+          <%= f.label "Admin", class:"me-4"%>
+          <%= f.radio_button :admin, :false %>
+          <%= f.label "User"%>
         </div>
 
         <div class="actions mt-4 mb-2">
