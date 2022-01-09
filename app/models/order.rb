@@ -8,5 +8,7 @@ class Order < ApplicationRecord
     validates :name, :address, :phone, :pay_type, :order_form, :presence => true
     validates :pay_type, :inclusion => PAYMENT_TYPES
     validates :order_form, :inclusion => ORDERS_FORM
-
+    
+    
+ 
 end

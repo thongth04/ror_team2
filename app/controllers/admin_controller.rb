@@ -12,5 +12,13 @@ class AdminController < ApplicationController
       @products = Product.search(params[:term]).paginate(page: params[:page], per_page: 12)
     end
   end
+  #  def reportlist
+  #   if params[:search] && params[:search][:dob].present?
+  #     start_date, end_date = params[:search][:dob].split(' - ')
+  #     @orders = Order.having_dob_between(start_date, end_date)
+  #   else
+  #     @orders = Order.all.paginate(page: params[:page], per_page: 10)
+  #   end
+  #  end
 
 end
