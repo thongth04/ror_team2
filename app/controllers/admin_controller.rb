@@ -22,8 +22,8 @@ class AdminController < ApplicationController
       @end_day = Date.today.end_of_day
     end
     params[:option] &&  search_reportlist
-    @orders = Order.where(created_at: @beginning_day..@end_day)
     @total_report = sum_if(@beginning_day, @end_day)
+    @orders = Order.where(created_at: @beginning_day..@end_day).paginate(page: params[:page], per_page: 10).order(created_at: :desc)
   end
 
   private
@@ -37,8 +37,7 @@ class AdminController < ApplicationController
     end
 
     def search_reportlist
-      option = params[:option]
-      case option
+      case params[:option]
         when "yesterday"
           @beginning_day = Date.today.beginning_of_day - 1.day
           @end_day = Date.today.end_of_day - 1.day
@@ -51,10 +50,9 @@ class AdminController < ApplicationController
         when "month"
           @beginning_day = Date.today.beginning_of_month 
           @end_day = ( @beginning_day + 30.days).end_of_day
+        else
+          @beginning_day = Date.today.beginning_of_day
+          @end_day = Date.today.end_of_day
       end
     end
-
-   
-    
-
 end

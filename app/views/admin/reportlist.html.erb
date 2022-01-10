@@ -1,13 +1,13 @@
 <div class="container mb-5" style="min-height:600px">
-  <div class="text-center my-4">
-    <h1>Quản lý doanh thu</h1>
+  <div class="text-center mt-4 mb-3">
     <% if @beginning_day != @end_day.strftime("%d/%m/%Y") %>
-      <p class="fs-5 fst-italic">Bao cao doanh thu tu <b><%=@beginning_day%></b> den <b><%=@end_day.strftime("%d/%m/%Y")%></b></p>
+      <p class="fs-3 fst-italic">Báo cáo doanh thu từ <b><%=@beginning_day.strftime("%d/%m/%Y")%></b> đến <b><%=@end_day.strftime("%d/%m/%Y")%></b></p>
     <% else %>
-      <p class="fs-5 fst-italic">Bao cao doanh thu ngay <b><%=@beginning_day.strftime("%d/%m/%Y")%></b></p>
+      <p class="fs-3 fst-italic">Báo cáo doanh thu ngày <b><%=@beginning_day.strftime("%d/%m/%Y")%></b></p>
     <% end %>
   </div>
- <div class="d-flex justify-content-between mb-4">
+  
+  <div class="mb-4">
     <%= render "filter_form" %>
     <%= render "reportfilter"%>
   </div>
@@ -15,33 +15,39 @@
   <% if @orders.count > 0 %>
     <table class="table table-striped">
       <thead>
-        <tr>
+        <tr class="fs-5">
           <th scope="col">Mã đơn hàng</th>
           <th scope="col">Ngày mua</th>
-          <th scope="col" class="text-center">Sản phẩm</th>
-          <th scope="col">Tổng tiền</th>
+          <th scope="col" class="text-center">SL Sản phẩm</th>
+          <th scope="col" class="text-center">Email đặt hàng</th>
+          <th scope="col" class="text-end pe-5">Tổng tiền</th>
         </tr>
       </thead>
       <tbody>
-         <tr>
-          <th scope="col" class ="text-info">Tổng HĐ: <%= @orders.count%></th>
+         <tr class="bg-success">
+          <th scope="col" class ="text-light">Tổng HĐ: <%= @orders.count%></th>
           <th scope="col"></th>
           <th scope="col"></th>
-          <th scope="col" class ="text-info"><%= number_to_currency(@total_report, unit:"", precision: 0, delimiter:'.') %>đ</th>
+          <th scope="col"></th>
+          <th scope="col" class ="text-light text-end pe-5"><%= number_to_currency(@total_report, unit:"", precision: 0, delimiter:'.') %>đ</th>
         </tr>
         <% @orders.each do |order| %>
           <tr>
-            <th scope="row" class="ps-4 py-4"><%= link_to "HD%04d"%[order.id], order_path(order), class:"text-decoration-none" %></th>
-            <td class="py-4"><%= order.created_at.strftime("%d-%m-%Y") %></td>
-            <td class="py-4 text-center" style="width:40%"><%= order.order_items.count %> </td>
-            <td class="py-4"><%= number_to_currency(order.total, unit:"", precision: 0, delimiter:'.') %>đ</td>
+            <th scope="row" class="ps-4 py-3"><%= link_to "HD%04d"%[order.id], order_path(order), class:"text-decoration-none" %></th>
+            <td><%= order.created_at.strftime("%d-%m-%Y") %></td>
+            <td class="text-center"><%= order.order_items.count %></td>
+            <td class="text-center"><%= order.user.email %></td>
+            <td class="text-end pe-5"><%= number_to_currency(order.total, unit:"", precision: 0, delimiter:'.') %>đ</td>
           </tr>
         <% end %>
       </tbody>  
     </table>
-
+    <div class="apple_pagination">
+      <%= will_paginate @orders, :container => false %>
+    </div>
   <% else %>
-      <p class="fs-4 ms-4 mt-4">Oh! Hôm nay bạn chưa có đơn hàng nào cả.</p>
+    <p class="fs-4 ms-4 mt-4">Oh! Bạn không có đơn hàng nào cả.</p>
   <% end %>
+
 </div>
 <%= javascript_pack_tag 'date', 'data-aturbolinks-track': 'reload' %>

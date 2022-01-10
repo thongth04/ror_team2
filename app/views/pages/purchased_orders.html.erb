@@ -29,6 +29,9 @@
         <% end %>
       </tbody>
     </table>
+    <div class="apple_pagination">
+      <%= will_paginate @orders, :container => false %>
+    </div>
   <% else %>
     <p class="fs-4 ms-4 mt-4">Oh! Bạn chưa đặt đơn hàng nào cả. Mua hàng ngay nào!</p>
   <% end %>
