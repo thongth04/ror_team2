@@ -7,8 +7,10 @@
       <p class="fs-5 fst-italic">Bao cao doanh thu ngay <b><%=@beginning_day.strftime("%d/%m/%Y")%></b></p>
     <% end %>
   </div>
-
-  <div class="mb-3"><%= render 'filter_form' %></div>
+ <div class="d-flex justify-content-between mb-4">
+    <%= render "filter_form" %>
+    <%= render "reportfilter"%>
+  </div>
 
   <% if @orders.count > 0 %>
     <table class="table table-striped">
