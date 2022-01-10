@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'pages/purchased_orders'
   get 'admin/dashboard'
   get 'admin/warehouse'
-  get 'reportlists/index' 
+  get 'admin/reportlist' 
 
   devise_for :users
   
@@ -27,6 +27,4 @@ Rails.application.routes.draw do
   
   resources :orders
 
-
-  
 end

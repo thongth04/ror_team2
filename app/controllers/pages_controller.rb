@@ -21,7 +21,7 @@ class PagesController < ApplicationController
   end
 
   def purchased_orders
-    @orders = current_user.orders
+    @orders = current_user.orders.order(created_at: :desc)
   end
   
 end

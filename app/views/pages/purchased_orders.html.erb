@@ -15,7 +15,7 @@
       <tbody>
         <% @orders.each do |order| %>
           <tr>
-            <th scope="row" class="ps-4 py-4"><%= link_to "HD000#{order.id}", order_path(order), class:"text-decoration-none" %></th>
+            <th scope="row" class="ps-4 py-4"><%= link_to "HD%04d"%[order.id], order_path(order), class:"text-decoration-none" %></th>
             <td class="py-4"><%= order.created_at.strftime("%d-%m-%Y") %></td>
             <td class="py-4" style="width:40%">
               <% order.order_items.each do |item| %>

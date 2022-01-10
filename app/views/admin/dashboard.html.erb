@@ -1,41 +1,57 @@
 <div class="container">
-  <p class="display-3 text-center mt-4 mb-4">ADMIN DASHBOARD</p>
+  <h1 class="text-center mt-4 mb-2">ADMIN DASHBOARD</h1>
 
-  <div id="dashboard">
-    <div class="card m-3 pt-2 border border-4 border-primary" style="height:180px;">
-      <%= link_to users_path, class:"text-decoration-none" do %>
-        <div class="card-body d-flex flex-column justify-content-center align-items-center">
-          <h1><i class="fas fa-users text-primary display-3"></i></h1>
-          <h2 class="card-title text-primary fst-italic">Quản lý người dùng</h2>
-        </div>
-      <% end %>
+  <div class="mb-5" id="dashboard">
+
+    <div class="row d-flex justify-content-center my-3">
+      <div class="card pt-2 border border-4 rounded-circle border-primary">
+        <%= link_to users_path, class:"text-decoration-none" do %>
+          <div class="card-body d-flex flex-column justify-content-center align-items-center">
+            <h1><i class="fas fa-users text-primary display-5"></i></h1>
+            <h5 class="card-title text-primary fst-italic">Users</h5>
+          </div>
+        <% end %>
+      </div>
     </div>
 
-    <div class="card m-3 pt-2 border border-4 border-warning" style="height:180px;">
-      <%= link_to products_path, class:"text-decoration-none" do %>
-        <div class="card-body d-flex flex-column justify-content-center align-items-center">
-          <h1><i class="fas fa-cubes text-warning display-3"></i></h1>
-          <h2 class="card-title text-warning fst-italic">Quản lý sản phẩm</h2>
-        </div>
-      <% end %>
+    <div class="row d-flex justify-content-center" style="margin-bottom:60px">
+      <div class="card pt-2 border border-4 rounded-circle border-warning">
+        <%= link_to products_path, class:"text-decoration-none" do %>
+          <div class="card-body d-flex flex-column justify-content-center align-items-center">
+            <h1><i class="fas fa-cubes text-warning display-5"></i></h1>
+            <h5 class="card-title text-warning fst-italic">Products</h5>
+          </div>
+        <% end %>
+      </div>
+      <span style="width:16%"></span>
+      <div class="card pt-2 border border-4 rounded-circle border-danger">
+        <%= link_to orders_path, class:"text-decoration-none" do %>
+          <div class="card-body d-flex flex-column justify-content-center align-items-center">
+            <h1><i class="fas fa-file-invoice-dollar text-danger display-5"></i></h1>
+            <h5 class="card-title text-danger fst-italic">Orders</h5>
+          </div>
+        <% end %>
+      </div>
     </div>
 
-    <div class="card m-3 pt-2 border border-4 border-danger" style="height:180px;">
-      <%= link_to orders_path, class:"text-decoration-none" do %>
-        <div class="card-body d-flex flex-column justify-content-center align-items-center">
-          <h1><i class="fas fa-file-invoice-dollar text-danger display-3"></i></h1>
-          <h2 class="card-title text-danger fst-italic">Quản lý đơn hàng</h2>
-        </div>
-      <% end %>
-    </div>
-
-    <div class="card m-3 pt-2 border border-4 border-success" style="height:180px;">
-      <%= link_to admin_warehouse_path, class:"text-decoration-none" do %>
-        <div class="card-body d-flex flex-column justify-content-center align-items-center">
-        <h1><i class="fas fa-warehouse text-success display-3"></i></h1>
-          <h2 class="card-title text-success fst-italic">Quản lý kho</h2>
-        </div>
-      <% end %>
+    <div class="row d-flex justify-content-center">
+      <div class="card pt-2 border border-4 rounded-circle border-success">
+        <%= link_to admin_warehouse_path, class:"text-decoration-none" do %>
+          <div class="card-body d-flex flex-column justify-content-center align-items-center">
+          <h1><i class="fas fa-warehouse text-success display-5"></i></h1>
+          <h5 class="card-title text-success fst-italic">Warehouse</h5>
+          </div>
+        <% end %>
+      </div>
+      <span style="width:7%"></span>
+      <div class="card pt-2 border border-4 rounded-circle border-info">
+        <%= link_to admin_reportlist_path, class:"text-decoration-none" do %>
+          <div class="card-body d-flex flex-column justify-content-center align-items-center">
+          <h1><i class="fas fa-chart-line text-info display-5"></i></h1>
+          <h5 class="card-title text-info fst-italic">Income</h5>
+          </div>
+        <% end %>
+      </div>
     </div>
 
   </div>
