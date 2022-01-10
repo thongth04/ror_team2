@@ -1,81 +1,79 @@
-<p>
-  <strong><h1 class = "text-center">Thông Tin Đặt Hàng</h1></strong>
-  <hr>
-</p>
-
-<form class = "container">
-  <strong><h3 class="text-danger">Thông Tin Người Nhận</h3></strong>
-  <hr>
-  <div class="row">
-    <div class="form-group col">
-      <p>
-        <label><strong>Tên người đặt hàng:</strong></label>
-        <label class ="form-label form-label-top"><%= @order.name %></label>
-      </p>
+<div class="mb-4">
+  <p>
+    <strong><h1 class = "text-center">Thông Tin Đặt Hàng</h1></strong>
+    <hr>
+  </p>
+  
+  <form class = "container">
+    <strong><h3 class="text-danger">Thông Tin Người Nhận</h3></strong>
+    <hr>
+    <div class="row">
+      <div class="form-group col">
+        <p>
+          <label><strong>Tên người đặt hàng:</strong></label>
+          <label class ="form-label form-label-top"><%= @order.name %></label>
+        </p>
+      </div>
+      <div class="form-group col ">
+        <p>
+          <strong>Địa chỉ:</strong>
+          <%= @order.address %>
+        </p>
+      </div>
+      <div class="form-group col">
+        <p>
+          <strong>Số điện thoại:</strong>
+          <%= @order.phone %>
+        </p>
+      </div>
     </div>
-    <div class="form-group col ">
-      <p>
-        <strong>Địa chỉ:</strong>
-        <%= @order.address %>
-      </p>
+    <div class ="row">
+      <div class="form-group col-4">
+        <p>
+          <strong>Hình thức thanh toán:</strong>
+          <%= @order.pay_type %>
+        </p>
+      </div>
+      <div class="form-group col-8">
+        <p>
+          <strong>Hình thức giao hàng:</strong>
+          <%= @order.order_form %>
+        </p>
+      </div>
     </div>
-    <div class="form-group col">
-      <p>
-        <strong>Số điện thoại:</strong>
-        <%= @order.phone %>
-      </p>
-    </div>
-  </div>
-  <div class ="row">
-    <div class="form-group col-4">
-      <p>
-        <strong>Hình thức thanh toán:</strong>
-        <%= @order.pay_type %>
-      </p>
-    </div>
-    <div class="form-group col-8">
-      <p>
-        <strong>Hình thức giao hàng:</strong>
-        <%= @order.order_form %>
-      </p>
-    </div>
-  </div>
-</form>
-
-
-<div class="card p-3 container">
+  </form>
+  
+  
+  <div class="card p-3 container">
     <strong><h3 class="text-danger">Thông Tin Sản Phẩm</h3></strong>
     <hr>
-    <table class="table">
-      <tr class = "text-center border">
+    <table class="table mt-3 mx-auto" style="width:85%;">
+      <tr class = "border">
         <td class ="col"><strong>Tên món ăn</strong></td>
-        <td class ="col"><strong>Số lượng</strong></td>
-        <td class ="col"><strong>Tổng tiền</strong></td>
+        <td class ="col text-center"><strong>Số lượng</strong></td>
+        <td class ="col text-center"><strong>Tổng tiền</strong></td>
       </tr>
       <% @order.order_items.each do |item| %>
-      <tr class = "text-center border">
-        <td class ="col"><%= item.product.title %></td>
-        <td class ="col">x<%= item.quantity.to_s %></td>
-        <td class ="col"><%= thanh_tien(item) %>đ</td>
+      <tr class = "border">
+        <td class ="col py-3 ps-4"><%= item.product.title %></td>
+        <td class ="col py-3 text-center">x<%= item.quantity.to_s %></td>
+        <td class ="col py-3 text-center"><%= number_to_currency(thanh_tien(item), unit:"", precision: 0, delimiter:'.') %>đ</td>
       </tr>
       <% end %>
+      <tr class = "border">
+        <td class ="col"><strong>Giảm Giá</strong></td>
+        <td class ="col"></td>
+        <td class ="col text-center">-20.000đ</td>
+      </tr>
+      <tr class = "border">
+        <td class ="col"><strong>TỔNG CỘNG</strong></td>
+        <td class ="col"></td>
+        <td class ="col text-center text-danger" style="font-size:18px;"><strong><%= number_to_currency(@order.total, unit:"", precision: 0, delimiter:'.') %>đ</strong></td>
+      </tr>
     </table>
-  
-  <hr>
-    <div class="row float-end">
-      <div class = "col-8 d-flex ">
-        <label class= "w-75"><strong>Giảm Giá</strong></label>
-        <label class= "w-25 text-danger">-20000đ</label>
-      </div>
-      <div class = "col-8 d-flex">
-        <label class= "w-75"><strong>TỔNG CỘNG</strong></label>
-        <label class= "w-25 text-danger"><%= @order.total %>đ</label>
-      </div>
-    </div>
   </div>
-
-<%# <%= link_to 'Edit', edit_order_path(@order) %> 
-<%# <%= link_to 'Back', orders_path %>
-<div class = "card-body float-end container"> 
-  <%= link_to 'OK', root_path, class:"btn btn-success" %> 
+  
+  <div class = "card-body container d-flex justify-content-end">
+    <%= link_to 'OK', root_path, class:"btn btn-success" %>
+  </div>
 </div>

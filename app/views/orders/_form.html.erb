@@ -1,63 +1,58 @@
-<%= form_with(model: @order) do |form| %>
-  <% if @order.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
-
-      <ul>
-        <% @order.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="form-group mt-3 d-flex justify-content-between">
-            <b><%= form.label :name%>:</b>
-            <%= form.text_field :name, class: " border form-control p-2 w-75 " %>
-      </div>
-
-      <div class="form-group mt-3 d-flex justify-content-between">
-       <b> <%= form.label :address %>:</b>
-        <%= form.text_area :address, class: "border form-control p-2 w-75" %>
-      </div>
-
-      <div class="form-group mt-3 d-flex justify-content-between">
-        <b><%= form.label :phone%>:</b>
-        <%= form.text_field :phone, class: "border form-control p-2 w-75" %>
-      </div>
-  </div>
+<div class="border border-info px-5 py-4">
+  <%= form_with(model: @order) do |form| %>
+    <%= render "shared/error_messages", obj: @order %>
   
-  <div class="card p-3">
-    <% @cart.cart_items.each do |item| %>
-      <div class="d-flex justify-content-between mx-4">
-        <p class="w-50"><%= item.product.title %></p>
-        <p class="w-25">x<%= item.quantity.to_s %></p>
-        <p class="w-25"><%= thanh_tien(item) %>đ</p>
+    <div class="form-group mt-3 d-flex justify-content-between">
+      <b><%= form.label "Người mua hàng" %></b>
+      <%= form.text_field :name, value: current_user.username, class: "border form-control p-2 w-75 fw-normal" %>
+    </div>
+  
+    <div class="form-group mt-3 d-flex justify-content-between">
+      <b><%= form.label "Địa chị nhận hàng" %></b>
+      <%= form.text_area :address, value: current_user.address, class: "border form-control p-2 w-75 fw-normal" %>
+    </div>
+  
+    <div class="form-group my-3 d-flex justify-content-between">
+      <b><%= form.label "Số điện thoại" %></b>
+      <%= form.text_field :phone, value: current_user.phone, class:"border form-control p-2 w-75 fw-normal" %>
+    </div>
+  
+    <div class="card p-3">
+      <p class="mb-3" style="font-size:17px;">Danh sách sản phẩm chọn mua</p>
+      <% @cart.cart_items.each do |item| %>
+        <div class="d-flex justify-content-between mx-4 fst-italic" style="font-size:15px">
+          <p class="w-50"><%= item.product.title %></p>
+          <p class="w-25">x<%= item.quantity.to_s %></p>
+          <p class="w-25"><%= number_to_currency(thanh_tien(item), unit:"", precision: 0, delimiter:'.') %>đ</p>
+        </div>
+      <% end %>
+      <div class="d-flex justify-content-between mx-4 fst-italic">
+        <p class="w-50">Giảm giá</p>
+        <p class="w-25"></p>
+        <p class="w-25" style="font-size:15px">-20.000đ</p>
       </div>
-    <% end %>
-    <div class="d-flex justify-content-between mx-4">
-      <h5 class="w-75">Giảm giá</h5>
-      <p class="w-25">-20000đ</p>
-    </div>
-    <div class="d-flex justify-content-between mx-4">
-      <h5 class="w-75">TỔNG CỘNG</h5>
-      <p class="w-25"><%= @cart.total %>đ</p>
-    </div>
-  </div>
+      <div class="d-flex justify-content-between mx-4 fst-italic">
+        <p class="w-50">Tổng cộng</p>
+        <p class="w-25"></p>
+        <p class="w-25 text-danger"><%= number_to_currency(@cart.total, unit:"", precision: 0, delimiter:'.') %>đ</p>
+      </div>
 
-  <div class="card p-3">
-    <h6 class="text-uppercase">Hình Thức</h6>
-    <div class="form-group">
-      <%= form.label :pay_type %>
-      <%= form.select :pay_type, Order::PAYMENT_TYPES, :prompt => 'Select a payment method' %>
-    </div>
+      <hr>
 
-    <div class="form-group">
-      <%= form.label :order_form %>
-      <%= form.select :order_form, Order::ORDERS_FORM,:prompt => 'Select a order form' %>
+      <p class="mb-3 text-uppercase" style="font-size:17px;">Hình Thức</p>
+      <div class="form-group mx-4 mb-2">
+        <%= form.label "Thanh toán:", class:"me-4" %>
+        <%= form.select :pay_type, Order::PAYMENT_TYPES, :prompt => 'Chọn hình thức thanh toán' %>
+      </div>
+  
+      <div class="form-group mx-4">
+        <%= form.label "Nhận hàng:", class:"me-4" %>
+        <%= form.select :order_form, Order::ORDERS_FORM,:prompt => 'Chọn hình thức nhận hàng' %>
+      </div>
     </div>
-  </div>
+  
     <div class="actions">
       <%= form.submit 'Đặt Hàng', class:"btn btn-danger w-100 mt-4 mb-2" %>
     </div>
- 
-<% end %>
+  <% end %>
+</div>
