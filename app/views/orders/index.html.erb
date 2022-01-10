@@ -1,6 +1,7 @@
+<div class="container mb-5">
 <h1>Orders</h1>
 
-<table>
+<table class="table colorloeloet table-striped ">
   <thead>
     <tr>
       <th>Name</th>
@@ -20,14 +21,15 @@
         <td><%= order.phone %></td>
         <td><%= order.pay_type %></td>
         <td><%= order.order_form %></td>
-        <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', order ,class: "btn btn-primary "%></td>
+        <td><%= link_to 'Edit', edit_order_path(order),class: "btn btn-warning "%></td>
+        <td><%= link_to 'Destroy', order, class: "btn btn-danger float-start", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
+</div>
 <%# <%= link_to 'New Order', new_order_path %> 

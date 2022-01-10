@@ -30,4 +30,13 @@ class Product < ApplicationRecord
     end
   end
 
+  def self.fill
+    products = Product.all.select{ |p| p.id > 60 }
+    for p in products
+      p.product_type = 'drink'
+      p.quantity = 40
+      p.save
+    end
+  end
+
 end
