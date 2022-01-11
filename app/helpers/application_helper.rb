@@ -8,6 +8,11 @@ module ApplicationHelper
       name
     end
   end
+  def created_at_from_parameters
+    if params[:search].present?
+      params[:search][:created_at]
+    end
+  end
 
   def create_new_cart(user)
     user.cart = Cart.new if user.cart.nil?

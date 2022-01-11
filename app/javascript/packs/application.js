@@ -14,5 +14,8 @@ ActiveStorage.start();
 require("jquery");
 require("./cart");
 require("./turbolink_fixing")
+// = request jquery 
+// = request moment 
+// = request daterangepicker
 
 global.$ = jQuery;

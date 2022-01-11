@@ -1,13 +1,14 @@
-<div class="card mx-auto mb-3" style="max-width: 1000px; min-height: 200px">
+<div class="card mx-auto mb-3" style="max-width:1000px;">
   <div class="row g-0">
     <div class="col-md-3">
-      <%= image_tag product.image_url, class:"rounded-start img-thumbnail", style:"max-width: 200px;" %>
+      <% if product.image_url %>
+        <%= image_tag product.image_url, class:"rounded img-thumbnail", style:"max-width:250px; height:200px;"%>
+      <% end %>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 ps-4">
       <div class="card-body">
         <h4 class="card-title mb-3"><%= truncate product.title, length: 40 %></h4>
-        <p class="card-text"><b>Type: &ensp;</b><%= product.product_type %></p>
-        <p class="card-text"><b>Description: &ensp;</b><%= product.description %></p>
+        <p class="card-text"><b>Type: &ensp;</b><%= product.product_type.upcase %></p>
         <p class="card-text"><b>Price: &ensp;</b><%= number_to_currency(product.price, unit:"", precision: 0, delimiter:',') %> VND</p>
         <p class="card-text"><b>Quantity: &ensp;</b><%= product.quantity %></p>
       </div>

@@ -1,0 +1,8 @@
+<div class="d-flex justify-content-center mb-3">
+  <%= form_for(:search, class: 'form-group', url: admin_reportlist_path , method: :get) do |f| %>
+    <div class="form-group mt-3 d-flex">
+      <%= f.text_field :created_at, data: { behavior:'daterangepicker' }, value: created_at_from_parameters, class: 'ps-3', style:"width:600px" %>
+      <%= f.submit "Tim kiem", class:"btn btn-success ms-1"%>
+    </div>
+  <%end%>
+</div>

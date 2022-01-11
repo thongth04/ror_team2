@@ -5,6 +5,10 @@ ruby '3.0.2'
 gem 'will_paginate', '>= 3.3'
 ## Adding gems for the project goes here
 gem 'devise'
+gem 'timezone', '~> 1.3', '>= 1.3.15'
+gem 'jquery-rails' # dependency of daterangepicker
+gem 'momentjs-rails' # dependency of daterangepicker
+gem 'bootstrap-daterangepicker-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
