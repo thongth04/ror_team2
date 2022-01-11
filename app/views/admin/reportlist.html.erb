@@ -1,6 +1,6 @@
 <div class="container mb-5" style="min-height:600px">
   <div class="text-center mt-4 mb-3">
-    <% if @beginning_day != @end_day.strftime("%d/%m/%Y") %>
+    <% if @beginning_day.to_date != @end_day.to_date %>
       <p class="fs-3 fst-italic">Báo cáo doanh thu từ <b><%=@beginning_day.strftime("%d/%m/%Y")%></b> đến <b><%=@end_day.strftime("%d/%m/%Y")%></b></p>
     <% else %>
       <p class="fs-3 fst-italic">Báo cáo doanh thu ngày <b><%=@beginning_day.strftime("%d/%m/%Y")%></b></p>
@@ -50,4 +50,4 @@
   <% end %>
 
 </div>
-<%= javascript_pack_tag 'date', 'data-aturbolinks-track': 'reload' %>
+<%= javascript_pack_tag 'date', 'data-turbolinks-track': 'reload' %>

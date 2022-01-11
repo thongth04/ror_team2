@@ -9,6 +9,4 @@ class Order < ApplicationRecord
     validates :pay_type, :inclusion => PAYMENT_TYPES
     validates :order_form, :inclusion => ORDERS_FORM
     
-    
- 
 end
