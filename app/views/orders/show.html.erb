@@ -57,7 +57,7 @@
       <tr class = "border">
         <td class ="col py-3 ps-4"><%= item.product.title %></td>
         <td class ="col py-3 text-center">x<%= item.quantity.to_s %></td>
-        <td class ="col py-3 text-center"><%= number_to_currency(thanh_tien(item), unit:"", precision: 0, delimiter:'.') %>đ</td>
+        <td class ="col py-3 text-center"><%= number_to_currency(item.thanh_tien, unit:"", precision: 0, delimiter:'.') %>đ</td>
       </tr>
       <% end %>
       <tr class = "border">

@@ -14,4 +14,8 @@ module ApplicationHelper
     end
   end
 
+  def create_new_cart(user)
+    user.cart = Cart.new if user.cart.nil?
+  end
+
 end

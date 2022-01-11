@@ -1,0 +1,63 @@
+<div class="card p-4 mb-3" id="cart-item">
+  <div class="row">
+    <div class="col-sm-2 d-flex align-items-center">
+      <img class="img" src="<%= cart_item.product.image_url %>">
+    </div>
+
+    <div class="col-sm-3 d-flex align-items-center">
+      <%= link_to cart_item.product.title, product_details_path(cart_item.product), class:"link-to" %>
+    </div>
+
+    <div class="col-sm-2 d-flex align-items-center fw-bold">
+      <%= number_to_currency(cart_item.product.price, unit:"", precision: 0, delimiter:'.') %>đ
+    </div>
+
+    <div class="col-sm-2 d-flex align-items-center">
+      <div class="group-input d-flex change-quantity">
+        <div class="btn rounded-start" onclick="descrease(event)" id="<%="btnDescrease#{cart_item.id}"%>">-</div>
+        <input type="number" value="<%=cart_item.quantity%>" min="1" class="text-center" id="<%="quantity#{cart_item.id}"%>">
+        <div class="btn rounded-end" onclick="increase(event)" id="<%="btnIncrease#{cart_item.id}"%>">+</div>
+      </div>
+    </div>
+
+    <div class="col-sm-2 d-flex align-items-center text-danger fw-bold ps-5">
+      <%= number_to_currency(thanh_tien(cart_item), unit:"", precision: 0, delimiter:'.') %>đ
+    </div>
+
+    <div class="col-sm-1 d-flex align-items-center">
+      <%= button_to [cart_item.cart, cart_item], params: { product_id: cart_item.product.id },
+                        method: :delete,
+                        data: { confirm: "Are you sure?" }, class:"btn" do %>
+        <%= image_tag('https://i.ibb.co/dDWWbtz/trash.png') %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  // function increase(event) {
+  //   let increaserID = event.target.id;
+  //   let item_id = increaserID.slice(11);
+  //   let quantityID = "quantity" + item_id;
+  //   console.log(increaserID, " ", quantityID);
+
+  //   const quantity = document.getElementById(quantityID);
+  //   quantity.value = parseInt(quantity.value) + 1;
+  //   console.log(quantity.value);
+  // }
+
+  // function descrease(event) {
+  //   let descreaserID = event.target.id;
+  //   let quantityID = "quantity" + descreaserID.slice(12);
+  //   console.log(descreaserID, " ", quantityID);
+
+  //   const quantity = document.getElementById(quantityID);
+  //   quantity.value = parseInt(quantity.value);
+  //     if (quantity.value > 1) {
+  //       quantity.value -= 1
+  //     }
+  //     console.log(quantity.value);
+  // }
+</script>
+

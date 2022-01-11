@@ -11,6 +11,11 @@ import "channels";
 Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
+require("jquery");
+require("./cart");
+require("./turbolink_fixing")
 // = request jquery 
 // = request moment 
 // = request daterangepicker
+
+global.$ = jQuery;

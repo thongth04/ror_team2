@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-  include OrdersHelper
   before_action :authenticate_user!
   before_action :require_admin, only: [:index]
   before_action :set_order, only: %i[ show edit update destroy ]
@@ -33,14 +32,11 @@ class OrdersController < ApplicationController
     @cart = current_user.cart
     @order = current_user.orders.new(order_params)
     create_order_from_cart(@order, @cart)
-    # @order.add_cart_items_from_cart(current_user)
 
     respond_to do |format|
       if @order.save
         update_product_quantity(@order)
         @cart.destroy
-        # Cart.destroy(session[:cart_id])
-        # session[:cart_id] = nil
         format.html { redirect_to @order, notice: "Bạn đã đặt hàng thành công" }
         format.json { render :show, status: :created, location: @order }
       else
@@ -87,6 +83,21 @@ class OrdersController < ApplicationController
       if current_user != @order.user && !current_user.admin?
         flash[:alert] = "You can only access your own orders"
         redirect_to root_path
+      end
+    end
+
+    def create_order_from_cart(order, cart)
+      for item in cart.cart_items
+        order_item = OrderItem.create(product_id: item.product_id, quantity: item.quantity, order_id: order.id)
+        order.order_items << order_item
+      end
+      order.total = cart.tong_tien(cart.total)
+    end
+
+    def update_product_quantity(order)
+      for item in order.order_items
+        item.product.quantity -= item.quantity
+        item.product.save
       end
     end
 end
