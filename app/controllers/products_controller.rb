@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except:[:details]
   before_action :require_admin, except: [:details]
   before_action :find_product, only: [:show, :details, :edit, :update, :destroy]
   before_action :get_reviews, only: [:show, :details]

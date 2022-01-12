@@ -45,9 +45,11 @@
       <p class="fs-4 text-muted">Sản phẩm này chưa có đánh giá nhận xét nào !</p>
     <% end %>
 
-    <h3 class="my-4">Thêm Đánh Giá - Nhận Xét</h3>
-      <%= render "reviews/form" %>
-    </div>
+    <% if user_signed_in? %>
+      <h3 class="my-4">Thêm Đánh Giá - Nhận Xét</h3>
+        <%= render "reviews/form" %>
+      </div>
+    <% end %>
   </div>
 
 </div>
