@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
   has_many :cart_items, dependent: :destroy
   has_many :order_items
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 
   # attribute :price, default: 0
   # attribute :quantity, default: 0

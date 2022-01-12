@@ -1,13 +1,31 @@
-<h2>Add a review:</h2>
-<%= form_with model: [ @product, @product.reviews.build ] do |form| %>
-  <p>
-    <%= current_user.username%>
-  </p>
-  <p>
-    <%= form.label "Review" %><br>
-    <%= form.text_area :content %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+<div class="row d-flex justify-content-center mt-100 mb-100">
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-body text-center">
+                <h4 class="card-title">Latest Comments</h4>
+            </div>
+            <div class="comment-widgets">
+                <!-- Comment Row -->
+                <div class="d-flex flex-row comment-row m-t-0">
+                    <div class="comment-text w-100">
+                        <h6 class="font-medium"><%= review.user.username %></h6> <span class="m-b-15 d-block"><%= review.content %></span>
+                        <p>
+                             <% review.rating.times do %>
+                                <span class="star text-warning fs-2">★</span>
+                            <% end %> 
+                        </p>
+                        <div class="comment-footer"> <span class="text-muted float-right"><em><%= time_ago_in_words(review.created_at) %> ago</em></span>  </div>
+                        <div>
+                        <%= link_to "Edit", [:edit, review.product, review], class: " btn-danger btn-sm" %>
+                        <%= link_to "Delete", [ review.product, review ],
+                                                method: :delete,
+                                                data: { confirm: "Are you sure?" }, class: "btn-success btn-sm" %>
+                    </div>
+                    </div>
+                </div> <!-- Comment Row -->
+               
+            </div> <!-- Card -->
+        </div>
+    </div>
+</div>
+           

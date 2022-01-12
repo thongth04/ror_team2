@@ -25,5 +25,11 @@
   </div>
 
 </div>
-<%= render "reviews/review" %>
+
+<% @product.reviews.each do |review| %>
+  <%= render 'reviews/review', review: review %><br>
+<% end %>
+<br>
+<h2>Add a review:</h2>
+<%= render "reviews/form" %>
 <%= javascript_pack_tag 'cart', 'data-turbolinks-track': 'reload' %>
