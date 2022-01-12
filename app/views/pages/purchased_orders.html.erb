@@ -24,7 +24,7 @@
               <% end %>
             </td>
             <td class="py-4"><%= number_to_currency(order.total, unit:"", precision: 0, delimiter:'.') %> đ</td>
-            <td class="py-4">Giao hàng thành công</td>
+            <td class="py-4"><%= order.status ? "Giao hàng thành công" : "Đang vận chuyển" %></td>
           </tr>
         <% end %>
       </tbody>

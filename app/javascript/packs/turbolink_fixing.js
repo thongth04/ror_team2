@@ -9,6 +9,3 @@ $(document).on('turbolinks:load', function() {
 
   });
 });
-
-
-// Fix Bootstrap dropdown

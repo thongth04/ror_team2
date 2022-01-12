@@ -1,5 +1,4 @@
 class PagesController < ApplicationController
-  include ProductsHelper
 
   def home
     @foods = Product.where(product_type: 'food').limit(8)
@@ -23,5 +22,21 @@ class PagesController < ApplicationController
   def purchased_orders
     @orders = current_user.orders.paginate(:page => params[:page], :per_page => 10).order(created_at: :desc)
   end
-  
+
+  private
+    def search(object, keyword)
+      if keyword
+        object.where('title LIKE ?', "%#{keyword}%")
+      else
+        object
+      end
+    end
+
+    def filter(object, option)
+      case option
+        when "price_asc" then object.order(price: :asc)
+        when "price_desc" then object.order(price: :desc)
+        else object
+      end
+    end
 end

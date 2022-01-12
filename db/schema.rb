@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_07_093231) do
+ActiveRecord::Schema.define(version: 2022_01_12_132411) do
 
   create_table "cart_items", force: :cascade do |t|
     t.integer "product_id", null: false
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2022_01_07_093231) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
+    t.boolean "status", default: false
   end
 
   create_table "products", force: :cascade do |t|
@@ -77,17 +78,6 @@ ActiveRecord::Schema.define(version: 2022_01_07_093231) do
     t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  end
-
-  create_table "warehouses", force: :cascade do |t|
-    t.string "sku"
-    t.string "title"
-    t.integer "import_quantity"
-    t.integer "inventory_number"
-    t.date "import_date"
-    t.string "import_price"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "cart_items", "carts"

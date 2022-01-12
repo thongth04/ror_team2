@@ -1,6 +1,25 @@
-<h1>Editing Order</h1>
+<div class="d-flex justify-content-center mb-4">
+  <div class="card mt-5" style="width: 40rem;">
+    <div class="card-header text-center">
+      <h2>Cập nhật trạng thái đơn hàng</h2>
+    </div>
+    <div class="card-body p-4">
+      <%= form_with model: @order do |f| %>
+        <h3>Mã đơn hàng <b><%= "HD%04d"%[@order.id] %></b></h3>
 
-<%= render 'form', order: @order %>
+        <div class="form-group my-4">
+          <span><b>Trạng thái: &ensp;&ensp;</b></span>
+          <%= f.radio_button :status, :true %>
+          <%= f.label "Giao hàng thành công", class:"me-4"%>
+          <%= f.radio_button :status, :false %>
+          <%= f.label "Đang vận chuyển"%>
+        </div>
 
-<%= link_to 'Show', @order %> |
-<%= link_to 'Back', orders_path %>
+        <div class="actions mt-4 mb-2">
+          <%= f.submit "Cập nhật đơn hàng", class: "btn btn-success w-100 p-2" %>
+        </div>
+        <div class="text-center"><%= link_to "Cancel", orders_path, class:"text-decoration-none text-success"%></div>
+      <% end %>
+    </div>
+  </div>
+</div>

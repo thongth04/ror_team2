@@ -4,11 +4,11 @@
   <table class="table colorloeloet table-striped ">
     <thead>
       <tr>
+        <th>Mã đơn hàng</th>
         <th>Người mua</th>
         <th>Địa chỉ</th>
-        <th>SĐT</th>
-        <th>Hình thức thanh toán</th>
-        <th>Nhận hàng</th>
+        <th class="px-4">SĐT</th>
+        <th>Trạng thái đơn hàng</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -16,14 +16,14 @@
     <tbody>
       <% @orders.each do |order| %>
         <tr>
-          <td><%= order.name %></td>
-          <td class="w-25"><%= order.address %></td>
-          <td><%= order.phone %></td>
-          <td><%= order.pay_type %></td>
-          <td><%= order.order_form %></td>
-          <td>
+          <th scope="row" class="ps-4 py-4"><%= link_to "HD%04d"%[order.id], order_path(order), class:"text-decoration-none" %></th>
+          <td class="py-4"><%= order.name %></td>
+          <td class="w-25 py-4"><%= order.address %></td>
+          <td class="py-4 px-4"><%= order.phone %></td>
+          <td class="py-4"><%= order.status ? "Giao hàng thành công" : "Đang vận chuyển" %></td>
+          <td class="py-4">
             <div class="btn-group float-end me-5" role="group" aria-label="Basic mixed styles example">
-              <%= link_to 'Show', order ,class: "btn btn-primary"%>
+              <%= link_to "Edit", edit_order_path(order), class: "btn btn-warning" %>
               <%= link_to 'Destroy', order, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
             </div>
           </td>
