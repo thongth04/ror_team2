@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   get 'admin/warehouse'
   get 'admin/reportlist' 
 
+  patch "cart/cart_item" => "cart_items#update"
+  patch "cart-update" => "carts#update"
+  get '/products/:id/details', to: 'products#details', as:'product-details'
+  
   devise_for :users
   
   scope "/admin" do
@@ -18,16 +22,13 @@ Rails.application.routes.draw do
   
   resources :products do
     resources :cart_items
+    resources :reviews
   end
-  get '/products/:id/details', to: 'products#details', as:'product-details'
   
   resources :carts, only: [:show] do
     resources :cart_items, except: [:update]
   end
-
+  
   resources :orders
-
-  patch "cart/cart_item" => "cart_items#update"
-  patch "cart-update" => "carts#update"
 
 end

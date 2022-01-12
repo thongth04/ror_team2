@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!
   before_action :require_admin, except: [:details]
   before_action :find_product, only: [:show, :details, :edit, :update, :destroy]
+  before_action :get_reviews, only: [:show, :details]
 
   def show
   end
@@ -53,5 +54,9 @@ class ProductsController < ApplicationController
     
     def product_params
       params.require(:product).permit( :title, :description, :price, :quantity, :product_type, :image_url )
+    end
+
+    def get_reviews
+      @reviews = @product.reviews.paginate(page: params[:page], per_page: 5).order(created_at: :desc)
     end
 end

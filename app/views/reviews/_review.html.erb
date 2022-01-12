@@ -1,0 +1,31 @@
+<div class="row mb-3">
+  <div class="col-sm-4">
+    <h6><b><%= review.user.username %></b></h6>
+  </div>
+
+  <div class="col-sm-6">
+    <% review.rating.times do %>
+      <span class="star text-warning fs-3">★</span>
+    <% end %>
+
+    <p class="m-b-15 d-block"><%= review.content %></p>
+    
+    <div class="comment-footer">
+      <span class="text-muted small fst-italic"><%= time_ago_in_words(review.created_at) %> ago</span>
+    </div>
+  </div>
+
+  <div class="col-sm-2 d-flex justify-content-end align-items-end">
+    <% if current_user == review.user %>
+      <%= link_to [:edit, review.product, review], class:"me-2 fs-5" do %>
+        <i class="far fa-edit"></i>
+      <% end %>
+    <% end %>
+    <% if current_user == review.user || current_user.admin?%>
+      <%= link_to [ review.product, review ], method: :delete,
+                data: { confirm: "Are you sure?" }, class:"fs-5" do %>
+        <i class="far fa-trash-alt"></i>
+      <% end %>
+    <% end %>
+  </div>
+</div>

@@ -27,4 +27,12 @@ module ApplicationHelper
     quantity
   end
 
+  def average_rating_point(product)
+    total_point = 0
+    for review in product.reviews
+      total_point += review.rating
+    end
+    avg_point = 1.0*total_point/product.reviews.count
+  end
+
 end
