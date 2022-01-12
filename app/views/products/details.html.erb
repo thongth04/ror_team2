@@ -25,23 +25,27 @@
   </div>
 
   <div class="row p-4 border rounded" >
-    <h3 class="mb-3">Đánh Giá - Nhận Xét Từ Khách Hàng</h3>
-    <p class="mb-4">
-      <span class="fs-2"><%= "%0.1f"%[average_rating_point(@product)] %> </span>
-      <% average_rating_point(@product).ceil.times do %>
-        <span class="star text-warning fs-2">★</span>
+    <% if @reviews.count > 0 %>
+      <h3 class="mb-3">Đánh Giá - Nhận Xét Từ Khách Hàng</h3>
+      <p class="mb-4">
+        <span class="fs-2"><%= "%0.1f"%[average_rating_point(@product)] %> </span>
+        <% average_rating_point(@product).ceil.times do %>
+          <span class="star text-warning fs-2">★</span>
+        <% end %>
+      </p>
+
+      <% @reviews.each do |review| %>
+        <hr> 
+        <%= render 'reviews/review', review: review %>
       <% end %>
-    </p>
-
-    <% @reviews.each do |review| %>
-      <hr> 
-      <%= render 'reviews/review', review: review %>
+      <div class="apple_pagination">
+        <%= will_paginate @reviews, :container => false %>
+      </div>
+    <% else %>
+      <p class="fs-4 text-muted">Sản phẩm này chưa có đánh giá nhận xét nào !</p>
     <% end %>
-    <div class="apple_pagination">
-      <%= will_paginate @reviews, :container => false %>
-    </div>
 
-    <h3 class="mt-5 mb-4">Thêm Đánh Giá - Nhận Xét</h3>
+    <h3 class="my-4">Thêm Đánh Giá - Nhận Xét</h3>
       <%= render "reviews/form" %>
     </div>
   </div>
