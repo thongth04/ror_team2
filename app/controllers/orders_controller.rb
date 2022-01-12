@@ -28,6 +28,11 @@ class OrdersController < ApplicationController
   end
 
   # POST /orders or /orders.json
+  def create_notification order
+    return if order.user_id == current_user.id
+    order.notifications.create! user_id: order.user_id,
+      notified_by_id: order.user_id, notice_type: 'order'
+  end
   def create
     @cart = current_user.cart
     @order = current_user.orders.new(order_params)
@@ -35,6 +40,7 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
+        @notification = create_notification @order
         update_product_quantity(@order)
         @cart.destroy
         format.html { redirect_to @order, notice: "Bạn đã đặt hàng thành công" }

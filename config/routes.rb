@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :notifications
   root 'pages#home'
   get 'pages/introduce'
   get 'pages/support'
