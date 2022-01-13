@@ -89,6 +89,17 @@ ActiveRecord::Schema.define(version: 2022_01_12_142832) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "warehouses", force: :cascade do |t|
+    t.string "sku"
+    t.string "title"
+    t.integer "import_quantity"
+    t.integer "inventory_number"
+    t.date "import_date"
+    t.string "import_price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   add_foreign_key "cart_items", "carts"
   add_foreign_key "cart_items", "products"
   add_foreign_key "carts", "users"

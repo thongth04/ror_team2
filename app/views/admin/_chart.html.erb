@@ -1,1 +1,2 @@
-<div class="my-4"><%= column_chart @orders.group_by_day_of_week(:created_at, format: "%a").count,  xtitle: "Hoá Đơn" %></div>
+
+<div class="my-4"><%= column_chart @orders.group_by_day_of_week(:created_at ,format: "%a").sum(:total),thousands: ",",  xtitle: "Hoá Đơn" %></div>
