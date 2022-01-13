@@ -32,6 +32,7 @@
         <% average_rating_point(@product).ceil.times do %>
           <span class="star text-warning fs-2">★</span>
         <% end %>
+        <span class="text-muted fs-4"><em>&emsp;( <%= "#{@reviews.count} nhận xét" %> )</em></span>
       </p>
 
       <% @reviews.each do |review| %>

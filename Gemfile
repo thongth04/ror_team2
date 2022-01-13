@@ -9,6 +9,8 @@ gem 'timezone', '~> 1.3', '>= 1.3.15'
 gem 'jquery-rails' # dependency of daterangepicker
 gem 'momentjs-rails' # dependency of daterangepicker
 gem 'bootstrap-daterangepicker-rails'
+gem "chartkick"
+gem 'groupdate'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'

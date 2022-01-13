@@ -7,6 +7,7 @@ import Rails from "@rails/ujs";
 import Turbolinks from "turbolinks";
 import * as ActiveStorage from "@rails/activestorage";
 import "channels";
+import "chartkick/chart.js";
 
 Rails.start();
 Turbolinks.start();
@@ -17,6 +18,8 @@ require("./turbolink_fixing");
 // = request jquery 
 // = request moment 
 // = request daterangepicker
+//= require chartkick
+//= require Chart.bundle
 
 
 global.$ = jQuery;
