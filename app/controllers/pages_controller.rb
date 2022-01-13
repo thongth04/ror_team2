@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  before_action :authenticate_user!, only: [:purchased_orders]
 
   def home
     @foods = Product.where(product_type: 'food').limit(8)
