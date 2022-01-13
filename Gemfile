@@ -5,6 +5,8 @@ ruby '3.0.2'
 gem 'will_paginate', '>= 3.3'
 ## Adding gems for the project goes here
 gem 'devise'
+gem "chartkick"
+gem 'groupdate'
 gem 'timezone', '~> 1.3', '>= 1.3.15'
 gem 'jquery-rails' # dependency of daterangepicker
 gem 'momentjs-rails' # dependency of daterangepicker

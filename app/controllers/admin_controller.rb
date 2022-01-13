@@ -57,4 +57,5 @@ class AdminController < ApplicationController
           @end_day = Date.today.end_of_day
       end
     end
+    
 end
