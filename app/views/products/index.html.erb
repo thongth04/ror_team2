@@ -1,6 +1,14 @@
 <div class="pb-5">
   <h1 class="text-center mt-4 mb-5">Quản lý sản phẩm</h1>
 
+  <div class="d-flex justify-content-between mb-4" style="margin-left:200px; margin-right:150px">
+    <div class="d-flex filter-form">
+      <%= button_to "Món Chính", products_path, method: :get, params: { option: "food" }, class:"button btn-increase" %>
+      <%= button_to "Thức Uống", products_path, method: :get, params: { option: "drink" }, class:"button btn-descrease" %>
+    </div>
+    <%= render "shared/search_form", path:  products_path %>
+  </div>
+
   <% if @products.count > 0 %>
     <% @products.each do |product| %>
       <%= render 'product', product: product %>
@@ -9,7 +17,7 @@
       <%= will_paginate @products, :container => false %>
     </div>
   <% else %>
-    <p class="fs-4 ms-4 mt-4">Opp!!! Cannot find any products</p>
+    <p class="fs-4 text-center mt-4">Opp!!! Cannot find any products</p>
   <% end %>
 
   <div style="position: fixed; top: 130px; right: 50px; z-index: 1">

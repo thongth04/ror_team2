@@ -11,7 +11,11 @@ class ProductsController < ApplicationController
   end
   
   def index
-    @products = Product.paginate(page: params[:page], per_page: 5).order(created_at: :desc)
+    if params[:option]
+      @products = Product.filter(params[:option]).paginate(page: params[:page], per_page: 10).order(created_at: :desc)
+    else
+      @products = Product.search(params[:term]).paginate(page: params[:page], per_page: 10).order(created_at: :desc)
+    end
   end
   
   def edit
